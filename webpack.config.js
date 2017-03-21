@@ -55,6 +55,7 @@ module.exports = {
 	    }]
     },
 	plugins: [
+		//new webpack.optimize.CommonsChunkPlugin("commons.js"),
 		// Generates default index.html
 	    new HtmlWebpackPlugin({
 			filename:'index.html',

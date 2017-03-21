@@ -1,6 +1,19 @@
-body{
-	font-size: 25px;
+@mixin font-dpr($font-size){
+    font-size: $font-size;
+
+    [data-dpr="2"] & {
+        font-size: $font-size * 2;
+    }
+
+    [data-dpr="3"] & {
+        font-size: $font-size * 3;
+    }
 }
+
+body{
+	@include font-dpr(16px);
+}
+
 
 #app{
 	position: absolute;
@@ -8,7 +21,7 @@ body{
 	top:0;
 	left:0;
 	right: 0;
-	height: 30rem;
+	height: 5rem;
 	img{
 		width:100%;
 		height: 100%;

@@ -1,11 +1,22 @@
 "use strict";
-//import Vue from '../../libs/vue.js';
+
+import flexible from "../../libs/flexible.js";
 import Vue from 'vue';
 import { Swipe, SwipeItem } from 'mint-ui';
 import "./home.scss";
-import url1 from "./swiper/index01.png";
-import url2 from "./swiper/index02.png";
-import url3 from "./swiper/itemPicture1.png";
+import url1 from "../../images/swiper/index01.png";
+import url2 from "../../images/swiper/index02.png";
+import url3 from "../../images/swiper/itemPicture1.png";
+
+/*
+let html = document.documentElement;
+window.rem = html.getBoundingClientRect().width / 25 ;
+html.style.fontSize = window.rem + 'px';
+//alert(html.style.fontSize);
+console.log(html.style.fontSize);
+*/
+
+flexible(window, window['lib'] || (window['lib'] = {}));
 
 
 Vue.component(Swipe.name, Swipe);
@@ -21,7 +32,6 @@ var App = new Vue({
         }
     }
 })
-
 
 
 //module.export = App;

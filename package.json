@@ -3,6 +3,7 @@
   "author": "namicici",
   "email": "namicici.lee@outlook.com",
   "dependencies": {
+    "express": "^4.15.2",
     "mint-ui": "^2.2.1",
     "vue": "^2.2.4"
   },
@@ -22,7 +23,7 @@
     "webpack-dev-server": "^2.1.0-beta.10"
   },
   "scripts": {
-    "prestart": "webpack",
-    "start": "webpack-dev-server"
+    "watch": "webpack --watch",
+    "start": "node start.js"
   }
 }
