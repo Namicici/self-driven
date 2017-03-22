@@ -1,5 +1,5 @@
 <template id="safety">
-	<div class="safety">{{hello}}</div>
+	<div class="safety"></div>
 </template>
 
 <script src="./safety.js"></script>
