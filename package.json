@@ -5,7 +5,9 @@
   "dependencies": {
     "express": "^4.15.2",
     "mint-ui": "^2.2.1",
-    "vue": "^2.2.4"
+    "vue": "^2.2.4",
+    "vue-router": "^2.3.0",
+    "vue-template-compiler": "^2.2.4"
   },
   "devDependencies": {
     "babel-core": "^6.24.0",

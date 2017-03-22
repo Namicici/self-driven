@@ -25,6 +25,7 @@ module.exports = {
 	        //jScrollPane: path.join(__dirname, '../libs/js/' + config.resources.jScrollPane),
 	        //moment: path.join(__dirname, '../libs/js/' + config.resources.moment)
 	        vue: path.join(__dirname, '/node_modules/vue/dist/vue.js'),
+			'vue-router': path.join(__dirname, 'node_modules/vue-router/dist/vue-router.js'),
 			//'mint-ui': path.join(__dirname, '/node_modules/mint-ui/lib/index.js')
 	    }
 	},

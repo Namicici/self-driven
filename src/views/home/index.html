@@ -5,11 +5,17 @@
 	</head>
 	<body>
 		<div id="app">
-			<mt-swipe :auto="4000">
-				<mt-swipe-item><img v-bind:src="swiper3"/></mt-swipe-item>
-				<mt-swipe-item><img v-bind:src="swiper1"/></mt-swipe-item>
-				<mt-swipe-item><img v-bind:src="swiper2"/></mt-swipe-item>
-			</mt-swipe>
+
+			<!-- 路由出口 -->
+			<!-- 路由匹配到的组件将渲染在这里 -->
+			<router-view></router-view>
+
+			<div class="tab">
+				<router-link to="/home" exact>Go to main</router-link>
+			    <router-link to="/mine">Go to mine</router-link>
+			    <router-link to="/safety">Go to safety</router-link>
+			</div>
+
 			<div>I love you</div>
 			<div><span>我爱你</span></div>
 		</div>

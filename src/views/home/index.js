@@ -2,11 +2,12 @@
 
 import flexible from "../../libs/flexible.js";
 import Vue from 'vue';
-import { Swipe, SwipeItem } from 'mint-ui';
+import VueRouter from 'vue-router';
 import "./home.scss";
-import url1 from "../../images/swiper/index01.png";
-import url2 from "../../images/swiper/index02.png";
-import url3 from "../../images/swiper/itemPicture1.png";
+
+import Main from "./main.vue";
+import Mine from "./mine.vue";
+import Safety from "./safety.vue";
 
 /*
 let html = document.documentElement;
@@ -18,19 +19,24 @@ console.log(html.style.fontSize);
 
 flexible(window, window['lib'] || (window['lib'] = {}));
 
+Vue.use(VueRouter);
+//Vue.use(Mine);
 
-Vue.component(Swipe.name, Swipe);
-Vue.component(SwipeItem.name, SwipeItem);
+const routes = [
+    {path: "/home", component: Main},
+    {path: '/mine', component: Mine},
+    //{path: '/transfer', component: Transferar},
+    //{path: '/card', component: Card},
+    {path: '/safety', component: Safety}
+]
 
-var App = new Vue({
-    el:'#app',
-    data: function () {
-        return {
-            swiper1: url1,
-            swiper2: url2,
-            swiper3: url3,
-        }
-    }
+const router = new VueRouter({
+  routes // （缩写）相当于 routes: routes
+})
+
+new Vue({
+    el: '#app',
+    router: router
 })
 
 
