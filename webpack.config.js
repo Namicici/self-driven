@@ -26,6 +26,7 @@ module.exports = {
 	        //moment: path.join(__dirname, '../libs/js/' + config.resources.moment)
 	        vue: path.join(__dirname, '/node_modules/vue/dist/vue.js'),
 			'vue-router': path.join(__dirname, 'node_modules/vue-router/dist/vue-router.js'),
+			axios: path.join(__dirname, 'node_modules/axios/dist/axios'),
 			//'mint-ui': path.join(__dirname, '/node_modules/mint-ui/lib/index.js')
 	    }
 	},

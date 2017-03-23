@@ -3,22 +3,21 @@
 import flexible from "../../libs/flexible.js";
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import {Swipe, SwipeItem} from "mint-ui";
-import "./home.scss";
+import CommonService from '../../services/common.js';
 
-//import Main from "./main.vue";
+import {Swipe, SwipeItem} from "mint-ui";
+import { Loadmore } from 'mint-ui';
+
+import "./home.scss";
 import Mine from "./mine/mine.vue";
 import Safety from "./safety/safety.vue";
 
-import url1 from "../../images/swiper/index01.png";
-import url2 from "../../images/swiper/index02.png";
-import url3 from "../../images/swiper/itemPicture1.png";
-
+import AccountIcon from "../../images/icons/account.png";
+import SafetyCenter from "../../images/icons/safety.png";
 
 Vue.component(Swipe.name, Swipe);
 Vue.component(SwipeItem.name, SwipeItem);
-
-
+Vue.component(Loadmore.name, Loadmore);
 
 /*
 let html = document.documentElement;
@@ -45,18 +44,52 @@ const router = new VueRouter({
   routes // （缩写）相当于 routes: routes
 })
 
-new Vue({
+var app = new Vue({
     el: '#app',
     data: function () {
         return {
-            main: "this is home page",
-            swiper1: url1,
-            swiper2: url2,
-            swiper3: url3,
+            slides: [],
+            cardList: [],
+            allLoaded: false,
+            accountIcon: AccountIcon,
+            safetyCenter: SafetyCenter
         }
+    },
+    methods:{
+        getSlides: function(){
+            var self = this;
+            CommonService.http({
+                method: 'get',
+                url:'/ad/list',
+                data:{
+                    adpCode: '01'
+                }
+            }).then(function(data){
+                self.slides = data;
+                return self.slides;
+            })
+        },
+        loadBottom() {
+            var self = this;
+            CommonService.http({
+                method:'get',
+                url:'/introduct/intrInfo',
+                data:{}
+            }).then(function(data){
+                for (var i = 0; i < data.length; i++){
+                    self.cardList.push(data[i]);
+                }
+                //self.allLoaded = true;// 若数据已全部获取完毕
+                self.$refs.loadmore.onBottomLoaded();
+                return self.cardList;
+            })
+        }
+    },
+    created: function(){
+        this.getSlides();
+        this.loadBottom();
     },
     router: router
 })
 
-
-//module.export = App;
+//app.getSlides();
