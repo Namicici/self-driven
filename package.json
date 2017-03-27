@@ -3,6 +3,7 @@
   "author": "namicici",
   "email": "namicici.lee@outlook.com",
   "dependencies": {
+    "axios": "^0.15.3",
     "express": "^4.15.2",
     "mint-ui": "^2.2.1",
     "vue": "^2.2.4",

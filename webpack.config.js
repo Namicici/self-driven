@@ -6,8 +6,8 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
 	entry: {
-		home: './src/views/home/index.js',
-		personalCenter: './src/views/personalCenter/index.js'
+		app: './src/views/index.js',
+		//personalCenter: './src/views/personalCenter/index.js'
 	},
 	output: {
 		path: path.join(__dirname, "dist"),
@@ -61,16 +61,17 @@ module.exports = {
 		// Generates default index.html
 	    new HtmlWebpackPlugin({
 			filename:'index.html',
-			template:'src/views/home/index.html',
+			template:'src/views/index.html',
 			inject: true,
-			chunks: ['home']
+			chunks: ['app']
 		}),
 		// Also generate a test.html
+		/*
 	    new HtmlWebpackPlugin({
 			filename: 'personalCenter.html',
 			template: 'src/views/personalCenter/index.html',
 			inject: true,
-			chunks: ['personalCenter']
-	    })
+			chunks: ['personalCenter'] //对应entry的入口文件
+	    })*/
   	]
 }
