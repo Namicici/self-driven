@@ -5,8 +5,12 @@
     position: absolute;
     top: 0;
     left: 0;
-    height: 5.5rem;
+    height: $slideHeight;
     right: 0;
+    img{
+        width:100%;
+        height: $slideHeight;
+    }
 }
 
 .tab{
@@ -56,7 +60,7 @@
         		-webkit-line-clamp: 2;
         		-webkit-box-orient: vertical;
                 @include font-dpr(12px);
-                color:#ccc;
+                color: #ccc;
             }
         }
         .picture{

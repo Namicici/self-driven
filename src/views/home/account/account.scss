@@ -1,9 +1,18 @@
+
+@import "../../../assets/scss/common.scss";
+
 .account{
 	position: absolute;
 	left: 0;
 	right: 0;
 	top: 0;
 	bottom: 0;
-	background-color: red;
+	background-color: $defaultBgColor;
 	z-index: 1;
+
+	.chart-container{
+		background-color: white!important;
+		width: 100%;
+		height: $slideHeight;
+	}
 }

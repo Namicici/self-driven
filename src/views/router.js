@@ -4,8 +4,8 @@ import VueRouter from 'vue-router';
 
 /* 懒加载，按需加载*/
 const Home = r => require.ensure([], () => r(require("./home/home.vue")), 'home');
-const Account = r => require.ensure([], () => r(require("./home/account/account.vue")), 'account');
-const Safety = r => require.ensure([], () => r(require("./home/safety/safety.vue")), 'safety');
+const Account = r => require.ensure([], () => r(require("./home/account/account.vue")), 'home');
+const Safety = r => require.ensure([], () => r(require("./home/safety/safety.vue")), 'home');
 
 const routes = [
     {path: "/", component: Home, children:[

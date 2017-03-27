@@ -3,6 +3,6 @@
 </template>
 
 <script src="./safety.js"></script>
-<style>
-	@import "./safety.scss";
+<style lang="sass">
+	@import "./safety.scss"
 </style>

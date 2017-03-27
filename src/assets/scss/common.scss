@@ -1,5 +1,6 @@
 
 $slideHeight: 5.5rem;
+$defaultBgColor: #eee;
 
 @mixin font-dpr($font-size){
     font-size: $font-size;
@@ -39,7 +40,7 @@ $slideHeight: 5.5rem;
 
 body{
 	@include font-dpr(16px);
-    background-color: #eee;
+    background-color: $defaultBgColor;
 }
 
 ul{
