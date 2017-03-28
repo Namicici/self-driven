@@ -54,7 +54,7 @@ module.exports = {
         }
     },
     created: function(){
-        this.getSlides();
+        //this.getSlides();
         this.loadBottom();
     }
 }

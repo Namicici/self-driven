@@ -2,20 +2,37 @@
 <html>
 	<head>
         <meta charset="utf-8">
+		<style>
+			footer{
+				position: absolute;
+				right: 0;
+				left: 0;
+				height: 1.5rem;
+				bottom: 0;
+				background-color: #eee;
+			}
+			.page-content{
+				position: fixed;
+				left: 0;
+				right: 0;
+				top:0;
+				bottom: 1.5rem;
+				overflow: auto;
+			}
+		</style>
 	</head>
 	<body>
 		<div id="app">
 			<!-- 路由出口 -->
 			<!-- 路由匹配到的组件将渲染在这里 -->
-			<router-view></router-view>
+			<router-view class="page-content"></router-view>
 			<!--transition name="slide-fade">
 			</transition-->
 
-			<div class="tab">
-				<router-link to="/" exact></router-link>
-			    <!--router-link to="/account"><img v-bind:src="accountIcon"/><span>我的账户</span></router-link>
-			    <router-link to="/safety"><img v-bind:src="safetyCenter"/><span>安全中心</span></router-link-->
-			</div>
+			<footer>
+				<router-link to="/home" exact>Home</router-link>
+				<router-link to="/life" exact>Life</router-link>
+			</footer>
 		</div>
 	</body>
 </html>

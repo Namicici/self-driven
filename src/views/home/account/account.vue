@@ -1,5 +1,5 @@
-<template id="account_main_page">
-	<div class="account">
+<template>
+	<div class="page" style="z-index:999;">
 		<div id="chart" class="chart-container"></div>
 	</div>
 </template>

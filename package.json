@@ -5,6 +5,7 @@
   "dependencies": {
     "axios": "^0.15.3",
     "express": "^4.15.2",
+    "fs": "0.0.1-security",
     "mint-ui": "^2.2.1",
     "vue": "^2.2.4",
     "vue-router": "^2.3.0",
@@ -27,6 +28,6 @@
   },
   "scripts": {
     "watch": "webpack --watch",
-    "start": "node start.js"
+    "start": "node start.js && supervisor -w server,start.js start"
   }
 }

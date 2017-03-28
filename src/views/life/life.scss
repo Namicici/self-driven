@@ -1,30 +1,11 @@
 
 @import "../../assets/scss/common.scss";
 
-.mint-swipe{
-    height: $slideHeight !important;
-    img{
-        width:100%;
-        height: $slideHeight;
-    }
-}
-
-.tab{
-    display: flex;
-    padding: 0.1rem 0;
-    justify-content: space-around;
-    background-color: white;
-    a{
-        display: flex;
-        flex-direction: column;
-        text-decoration: none;
-        color: #282828;
-        img{
-            width: 1rem;
-        }
-    }
-}
 .list{
+    position: absolute;
+    top:$slideHeight + 2rem;
+    left:0;
+    right:0;
     margin-top:0.2rem;
     background-color: white;
     li{

@@ -1,5 +1,5 @@
-<template id="safety">
-	<div class="safety"></div>
+<template>
+	<div class="page"></div>
 </template>
 
 <script src="./safety.js"></script>

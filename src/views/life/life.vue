@@ -1,13 +1,5 @@
 <template>
 	<div class="page">
-		<mt-swipe :auto="4000">
-			<mt-swipe-item v-for="item in slides" :key="item.url"><img v-bind:src="item.url"/></mt-swipe-item>
-		</mt-swipe>
-
-		<div class="tab">
-		    <router-link to="/home/account"><img v-bind:src="accountIcon"/><span>我的账户</span></router-link>
-		    <router-link to="/home/safety"><img v-bind:src="safetyCenter"/><span>安全中心</span></router-link>
-		</div>
 		<div class="list">
 			<mt-loadmore :bottom-method="loadBottom" :bottom-all-loaded="allLoaded" ref="loadmore">
 			  <ul>
@@ -24,7 +16,7 @@
 	</div>
 </template>
 
-<script src="./home.js"></script>
+<script src="./life.js"></script>
 <style lang="sass">
-	@import "./home.scss"
+	@import "./life.scss"
 </style>
