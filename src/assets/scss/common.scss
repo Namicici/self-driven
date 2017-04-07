@@ -22,6 +22,7 @@ $defaultBgColor: #eee;
     z-index:0;
     animation: slide-right-out .5s;
 }
+
 .slide-right-enter, .slide-right-enter-active {
     z-index:99;
     animation: slide-right-in .5s;

@@ -1,7 +1,9 @@
 <template>
 	<div>
 		<transition :name="transitionName">
-			<router-view></router-view>
+  			<keep-alive>
+				<router-view></router-view>
+			</keep-alive>
 		</transition>
 	</div>
 </template>
@@ -12,9 +14,8 @@
 				transitionName: 'slide-right'
 			}
 		},
-		watch:{
+		watch: {
 			'$route': function(to, from){
-
 				if (!from.path.includes(to.path) && (['/home', '/life'].indexOf(to.path) >= 0)){
 					this.transitionName = "";
 					return;
