@@ -1,10 +1,15 @@
 'use strict';
 
+import Vue from 'vue';
 import Echarts from "../../../assets/libs/echarts.js";
+import Keyboard from "../../../components/keyboard/keyboard.vue";
+
+Vue.component(Keyboard.name, Keyboard);
 
 module.exports = {
 	data: function(){
 		return {
+			//focused: false
 		}
 	},
 	methods: {
@@ -57,6 +62,10 @@ module.exports = {
 			        }
 			    ]
 			});
+		},
+		safeInputFocused: function(){
+			//this.focused = true;
+			this.$emit('needSafeInputKeyboard', true);
 		}
 	},
 	mounted: function(){

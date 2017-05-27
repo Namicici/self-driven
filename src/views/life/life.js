@@ -13,6 +13,17 @@ Vue.component(Swipe.name, Swipe);
 Vue.component(SwipeItem.name, SwipeItem);
 Vue.component(Loadmore.name, Loadmore);
 
+
+Vue.component('test', {
+	render: function (createElement) {
+		return createElement(
+			'h3',   // tag name 标签名称
+			this.$slots.default // 子组件中的阵列
+		)
+	}
+});
+
+
 module.exports = {
     data: function () {
         return {

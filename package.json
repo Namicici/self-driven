@@ -31,9 +31,9 @@
     "webpack-dev-server": "^2.4.2"
   },
   "scripts": {
-    "watch": "webpack --watch",
+    "watch": "cross-env NODE_ENV=dev webpack --watch",
     "start": "cross-env NODE_ENV=dev node --debug start.js && supervisor -w server",
     "debug": "node-inspector --web-port=8080",
-    "publish": "cross-env NODE_ENV=production && webpack"
+    "publish": "cross-env NODE_ENV=production  webpack"
   }
 }

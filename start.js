@@ -5,6 +5,7 @@ var app = express();
 //var router = app.router();
 var port = 9001;
 var fs = require('fs');
+var urllib = require('url');
 
 //process.env.NODE_ENV
 /*
@@ -19,9 +20,61 @@ db.open(function(err, db){
     }
 })
 */
-app.use("/", express.static(__dirname + "/dist/"));
+//app.use("/", express.static(__dirname + "/dist/"));
 
 //require('./server/routes')(app);
+
+app.get('/', function(req, res){
+    var params = urllib.parse(req.url, true);
+    console.log(params);
+    
+    if (params.query && params.query.token) {
+        res.send()
+    } 
+})
+
+app.get("/api/merchant/index", function(req, res){
+    console.log("/api/merchant/index");
+    res.send({
+        code: "0000",
+        message: "商户暂停",
+        data: {
+            uaType: "ahrcu",
+            uaData: {
+                shopInfo: {
+                    merchantName: "信e付商户",
+                    outletName: "汇商大厦店",
+                    outletId: "123456",
+                    defaultImage: "94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1492603830&di=69e1e0f611a6e1823a5355c813bc0890&src=http://img3.duitang.com/uploads/item/201603/06/20160306092523_Hk8Ca.jpeg"
+                },
+                wxConfig: {
+                    sign: "xxx"
+                },
+                point:'123'
+            }
+        }
+    });
+})
+
+/*jsonp的请求*/
+app.get("/api/client/token", function(req, res){
+    console.log('/api/client/token');
+    var data = {
+        "code":"0000",
+        "token":"11111111"
+    };
+
+    var params = urllib.parse(req.url, true);
+    console.log(params);
+    
+    if (params.query && params.query.callback) {
+        //console.log(params.query.callback);
+        var str =  params.query.callback + '(' + JSON.stringify(data) + ')';//jsonp
+            res.end(str);
+        } else {
+            res.end(JSON.stringify(data));//普通的json
+    } 
+})
 
 app.get("/ad/list", function(req, res){
     var fileContent = fs.readFileSync("./src/assets/images/swiper/index01.png");

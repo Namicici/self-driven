@@ -1,5 +1,6 @@
 <template>
 	<div class="page">
+		<test></test>
 		<div class="list">
 			<mt-loadmore :bottom-method="loadBottom" :bottom-all-loaded="allLoaded" ref="loadmore">
 			  <ul>

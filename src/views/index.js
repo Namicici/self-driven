@@ -21,3 +21,7 @@ var app = new Vue({
 	el:'#app',
     router: router
 })
+
+app.$on('needSafeInputKeyboard', function(data){
+	console.log(data);
+})
