@@ -1,22 +1,22 @@
 'use strict';
 
-var Webpack = require('webpack');
+var webpack = require('webpack');
 var express = require('express');
-var WebpackDevMiddleware = require('webpack-dev-middleware');
-var WebpackHotMiddleware = require('webpack-hot-middleware');
+var webpackDevMiddleware = require('webpack-dev-middleware');
+var webpackHotMiddleware = require('webpack-hot-middleware');
 var proxyMiddleware = require('http-proxy-middleware');
 //var WebpackDevServer = require('webpack-dev-server');
 var devConfig = require('./webpack.dev.conf.js');
 
-var compiler = Webpack(devConfig);
+var compiler = webpack(devConfig);
 
 var app = express();
 
-app.use(WebpackDevMiddleware(compiler, {
+app.use(webpackDevMiddleware(compiler, {
 
 }))
 
-app.use(WebpackHotMiddleware(compiler, {
+app.use(webpackHotMiddleware(compiler, {
     log: () => {}
 }))
 

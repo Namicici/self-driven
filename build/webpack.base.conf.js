@@ -16,8 +16,8 @@ module.exports = {
 	},
 	output: {
 		path: resolve('dist'),
-		filename: '[name].entry.[hash].js',
-		chunkFilename: '[name].[hash].js',
+		filename: 'js/[name].entry.[hash].js',
+		chunkFilename: 'js/[name].[hash].js',
 		publicPath: '/'
 	},
 	module: {
@@ -71,7 +71,7 @@ module.exports = {
         new webpack.HotModuleReplacementPlugin()
         //,new webpack.NoErrorsPlugin()
 		,new ExtractTextPlugin({
-			filename: 'app.css',
+			filename: 'css/app.css',
 			allChunks: true})
 		,new HtmlWebpackPlugin({
 			filename:'index.html',
