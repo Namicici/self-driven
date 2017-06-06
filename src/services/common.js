@@ -7,7 +7,7 @@ module.exports = {
 		var token = "0989088797";
 		var config = {
 			//url: options.url,
-			baseURL: 'http://localhost:9001/',
+			baseURL: '/api',
 			headers: {'token': token},
 			//params: options.params, //only for get methods
 			//data: options.data, //only for post , delete and put method
