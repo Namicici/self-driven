@@ -5,13 +5,17 @@ var path = require("path");
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
+function resolve(dir){
+	return path.join(__dirname, '../' + dir);
+}
+
 module.exports = {
 	entry: {
-		app: './src/views/index.js',
+		app: resolve('src/views/index.js'),
 		//personalCenter: './src/views/personalCenter/index.js'
 	},
 	output: {
-		path: path.join(__dirname, "dist"),
+		path: resolve('dist'),
 		filename: '[name].entry.[hash].js',
 		chunkFilename: '[name].[hash].js',
 		publicPath: '/'
@@ -53,9 +57,9 @@ module.exports = {
 	},
 	resolve: {
 		alias: {
-			vue: path.join(__dirname, '/node_modules/vue/dist/vue.js'),
-			'vue-router': path.join(__dirname, '/node_modules/vue-router/dist/vue-router.js'),
-			axios: path.join(__dirname, '/node_modules/axios/dist/axios.js')
+			vue: resolve('node_modules/vue/dist/vue.js'),
+			'vue-router': resolve('node_modules/vue-router/dist/vue-router.js'),
+			axios: resolve('node_modules/axios/dist/axios.js')
 		}
 	},
 	/*postcss: [
@@ -71,7 +75,7 @@ module.exports = {
 			allChunks: true})
 		,new HtmlWebpackPlugin({
 			filename:'index.html',
-			template:'src/views/index.html',
+			template: resolve('src/views/index.html'),
 			inject: true,
 			chunks: ['app']
 		}),

@@ -17,7 +17,7 @@ app.use(WebpackDevMiddleware(compiler, {
 }))
 
 app.use(WebpackHotMiddleware(compiler, {
-    log: ()=>{}
+    log: () => {}
 }))
 
 app.use('/', proxyMiddleware({
