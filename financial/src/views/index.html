@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<style>
+			footer{
+				position: absolute;
+				right: 0;
+				left: 0;
+				height: 1.5rem;
+				bottom: 0;
+				background-color: #eee;
+				display: flex;
+			    justify-content: space-around;
+			    align-items: center;
+			}
+			.page-content{
+				position: fixed;
+				left: 0;
+				right: 0;
+				top:0;
+				bottom: 1.5rem;
+				overflow: auto;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<!-- 路由出口 -->
+			<!-- 路由匹配到的组件将渲染在这里 -->
+			<router-view class="page-content"></router-view>
+			<!--transition name="slide-fade">
+			</transition-->
+
+			<footer>
+				<router-link to="/home" exact>Home</router-link>
+				<router-link to="/life" exact>Life</router-link>
+			</footer>
+		</div>
+	</body>
+</html>
