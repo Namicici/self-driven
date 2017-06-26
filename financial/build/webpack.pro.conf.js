@@ -5,7 +5,7 @@ var baseConfig = require('./webpack.base.conf.js');
 var merge = require('webpack-merge');
 
 var proConfig = {
-	devtool: '#source-map'
+	//devtool: '#source-map'
 }
 
 if (process.env.NODE_ENV == 'production'){

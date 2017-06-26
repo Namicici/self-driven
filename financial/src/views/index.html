@@ -7,12 +7,16 @@
 				position: absolute;
 				right: 0;
 				left: 0;
-				height: 1.5rem;
+				height: 1.25rem;
 				bottom: 0;
-				background-color: #eee;
+				background-color: #fff;
 				display: flex;
 			    justify-content: space-around;
 			    align-items: center;
+				border-top: solid 1px #ccc;
+			}
+			footer img{
+				width: 0.6rem;
 			}
 			.page-content{
 				position: fixed;
@@ -33,7 +37,7 @@
 			</transition-->
 
 			<footer>
-				<router-link to="/home" exact>Home</router-link>
+				<router-link to="/home" exact><img src="/assets/home.png"/></router-link>
 				<router-link to="/life" exact>Life</router-link>
 			</footer>
 		</div>

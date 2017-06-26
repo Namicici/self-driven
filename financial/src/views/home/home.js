@@ -18,9 +18,9 @@ module.exports = {
         return {
             slides: [],
             cardList: [],
-            allLoaded: false,
-            accountIcon: AccountIcon,
-            safetyCenter: SafetyCenter
+            allLoaded: false
+            //accountIcon: AccountIcon,
+            //safetyCenter: SafetyCenter
         }
     },
     methods:{

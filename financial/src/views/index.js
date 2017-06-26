@@ -5,6 +5,8 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import router from './router.js';
 
+import HomeIcon from "../assets/images/icons/home.png";
+
 /* 另一种一种适配方案
 let html = document.documentElement;
 window.rem = html.getBoundingClientRect().width / 25 ;
@@ -14,6 +16,8 @@ console.log(html.style.fontSize);
 */
 
 flexible(window, window['lib'] || (window['lib'] = {}));
+
+
 
 Vue.use(VueRouter);
 

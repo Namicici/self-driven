@@ -51,7 +51,8 @@ module.exports = {
 			//exclude: /node_modules/,
 			loader: 'file-loader',
 			options: {
-				name: '[name].[ext]?[hash]'
+				limit: 1000,
+				name: 'assets/[name].[ext]'
 			}
 		}]
 	},

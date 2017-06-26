@@ -11,7 +11,7 @@ if (process.env.NODE_ENV == 'dev'){
 	console.log('watching start');
 	compiler.watch({
 		watchOptions: {
-			ignored: '/node_modules/'
+			ignored: /node_modules/
 		}
 	}, function(err, stats){
 		console.log('watching');
