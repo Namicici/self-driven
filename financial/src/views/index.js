@@ -1,11 +1,12 @@
 "use strict";
 
-import flexible from "../assets/libs/flexible.js";
+import flexible from '../assets/libs/flexible.js';
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import router from './router.js';
 
-import HomeIcon from "../assets/images/icons/home.png";
+import HomeIcon from '../assets/images/icons/home.png';
+import LifeIcon from '../assets/images/icons/life.png';
 
 /* 另一种一种适配方案
 let html = document.documentElement;
