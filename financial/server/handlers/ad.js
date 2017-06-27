@@ -52,7 +52,8 @@ function getAdList(params, data, res){
     copyFileSync('./server/files/images/index02.png', './dist/index02.png');
 
 	res.writeHead(200/*, {'Content-Type': 'text/html'}*/);
-    var data = JSON.stringify([{url:'http://localhost:9001/index01.png', title:''}, {url:'http://localhost:9001/index02.png', title:''}]);
+    var data = JSON.stringify([{url:'http://localhost:9001/index01.png', title:''},
+        {url:'http://localhost:9001/index02.png', title:''}]);
 	res.write(data);
     res.end();
 }

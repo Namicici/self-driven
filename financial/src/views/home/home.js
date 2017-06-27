@@ -55,7 +55,8 @@ module.exports = {
         jsonp: function(){
             var self = this;
             CommonService.jsonp({
-                url: '/client/token'
+                url: 'http://localhost:9002/api/client/token',
+                withCredentials: true
             }).then(function(data){
                 console.log('jsonp success data: ' + data);
             }, function(error){
@@ -66,8 +67,9 @@ module.exports = {
             var self = this;
             CommonService.cors({
                 method: 'get',
-                baseURL: 'http://localhost:9002/api',
-                url: '/client/token'
+                baseURL: 'http://localhost:9002/api/',
+                url: '/client/token',
+                withCredentials: true
             }).then(function(data){
                 console.log('cors success: ' + data);
             }, function(error){

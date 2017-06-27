@@ -8,6 +8,9 @@
 
 import Axios from 'axios';
 
+var jsonpID = 0;
+
+/* 封装cookie的读写方法 */
 var cookie = {
 	get: function(name){
 		var cookie = document.cookie;
@@ -69,45 +72,37 @@ module.exports = {
 	},
 	cors: function(options){
 		var self = this;
-		cookie.set('token_test', '0980');
-		self.http(options).then(function(data){
-			console.log('cors success');
-		}, function(error){
-			console.log('cors error');
-		})
-
+		return self.http(options)
 	},
 	jsonp: function(options){
-		cookie.set('token_test', '0980');
-		console.log('cookie:' + document.cookie);
-		var callbackName = 'jsonp1';
+		var callbackName = options.callbackName;
+		if (!callbackName)
+			callbackName = 'jsonp' + (++jsonpID);
 		var responseData;
-		options.url = 'http://localhost:9002/api' + options.url;
+		var originalCallback = window[callbackName];
 		return new Promise(function(resolve, reject){
 			var script = document.createElement('script');
 
 			script.addEventListener('load', function(e, errorType) {
-				//clearTimeout(abortTimeout)
-				//script.off().remove()
-				//script.remove();
+				script.remove();
 
 				if (e.type == 'error' || !responseData) {
 					reject('error');
-					//ajaxError(null, errorType || 'error', xhr, options, deferred)
 				} else {
 					resolve(responseData[0]);
-					//ajaxSuccess(responseData[0], xhr, options, deferred)
 				}
 
 				window[callbackName] = originalCallback
-				if (responseData && $.isFunction(originalCallback))
+				if (responseData && (typeof(originalCallback)=='function'))
 					originalCallback(responseData[0])
 
 				originalCallback = responseData = undefined
 			})
-
-			script.setAttribute('crossorigin', 'use-credentials');
-			//script.setAttribute('crossorigin', 'anonymous'); //cookie is not allowed
+			if (options.withCredentials){
+				script.setAttribute('crossorigin', 'use-credentials');
+			} else {
+				script.setAttribute('crossorigin', 'anonymous'); //cookie is not allowed
+			}
 			script.src = options.url + '?callback=' + callbackName;
 			window[callbackName] = function(){
 				responseData = arguments;
