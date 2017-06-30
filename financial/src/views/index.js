@@ -7,6 +7,7 @@ import router from './router.js';
 
 import HomeIcon from '../assets/images/icons/home.png';
 import LifeIcon from '../assets/images/icons/life.png';
+import MineIcon from '../assets/images/icons/mine.png';
 
 /* 另一种一种适配方案
 let html = document.documentElement;
@@ -17,8 +18,6 @@ console.log(html.style.fontSize);
 */
 
 flexible(window, window['lib'] || (window['lib'] = {}));
-
-
 
 Vue.use(VueRouter);
 

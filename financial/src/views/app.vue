@@ -16,7 +16,7 @@
 		},
 		watch: {
 			'$route': function(to, from){
-				if (!from.path.includes(to.path) && (['/home', '/life'].indexOf(to.path) >= 0)){
+				if (!from.path.includes(to.path) && (['/home', '/life', '/mine'].indexOf(to.path) >= 0)){
 					this.transitionName = "";
 					return;
 				}

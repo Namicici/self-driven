@@ -11,9 +11,11 @@ var getAdList = require('./handlers/ad.js');
 var handlerError = require('./handlers/errorHandling.js');
 var path = require('path');
 var download = require('./handlers/file.js');
+var dbTest = require('./handlers/dbTest.js');
 
 var mapping = {
-	'GET /api/ad/list': getAdList
+	'GET /api/ad/list': getAdList,
+	'GET /api/db/test': dbTest
 }
 
 const MIME = {
