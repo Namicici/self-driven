@@ -21,11 +21,11 @@
         color: #282828;
         flex-basis: 25%;
         border-right: solid 1px #ccc;
-        &:nth-child(3){
+        &:nth-child(4){
             border-right: none;
         }
         img{
-            width: 1.5rem;
+            height: 1.5rem;
         }
     }
 }
@@ -43,7 +43,6 @@
                 text-overflow: ellipsis;
                 width: 90%;
                 white-space: nowrap;
-                font-weight: 800;
             }
             .content{
         		overflow : hidden;
@@ -58,6 +57,10 @@
         .picture{
             width:25%;
             align-items: flex-end;
+            img{
+                height: 1.5rem;
+                width: 100%;
+            }
         }
     }
 }

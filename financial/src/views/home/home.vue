@@ -7,9 +7,11 @@
 		<div class="tab">
 		    <router-link to="/home/account"><img src="/assets/account.png"/></router-link>
 		    <router-link to="/home/safety"><img src="/assets/safety.png"/></router-link>
+		    <router-link to="/home/card"><img src="/assets/card.png"/></router-link>
+		    <router-link to="/home/transfer"><img src="/assets/transfer.png"/></router-link>
 		</div>
-		<div v-on:click="jsonp"> jsonp test </div>
-		<div v-on:click="cors"> cors test </div>
+		<!--div v-on:click="jsonp"> jsonp test </div>
+		<div v-on:click="cors"> cors test </div-->
 		<div class="list">
 			<mt-loadmore :bottom-method="loadBottom" :bottom-all-loaded="allLoaded" ref="loadmore">
 			  <ul>

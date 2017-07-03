@@ -8,6 +8,8 @@ import { Loadmore } from 'mint-ui';
 
 import AccountIcon from "../../assets/images/icons/account.png";
 import SafetyCenter from "../../assets/images/icons/safety.png";
+import CardIcon from "../../assets/images/icons/card.png";
+import TransferIcon from "../../assets/images/icons/transfer.png";
 
 Vue.component(Swipe.name, Swipe);
 Vue.component(SwipeItem.name, SwipeItem);
@@ -19,8 +21,6 @@ module.exports = {
             slides: [],
             cardList: [],
             allLoaded: false
-            //accountIcon: AccountIcon,
-            //safetyCenter: SafetyCenter
         }
     },
     methods:{
