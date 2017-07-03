@@ -10,12 +10,14 @@ var log = require('./common/log.js');
 var getAdList = require('./handlers/ad.js');
 var handlerError = require('./handlers/errorHandling.js');
 var path = require('path');
-var download = require('./handlers/file.js');
+var download = require('./handlers/file.js').download;
+var downloadTest = require('./handlers/file.js').downloadTest;
 var dbTest = require('./handlers/dbTest.js');
 
 var mapping = {
 	'GET /api/ad/list': getAdList,
-	'GET /api/db/test': dbTest
+	'GET /api/db/test': dbTest,
+	'GET /api/download/test': downloadTest
 }
 
 const MIME = {
