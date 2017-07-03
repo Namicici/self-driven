@@ -7,9 +7,10 @@ import {Swipe, SwipeItem} from "mint-ui";
 import { Loadmore } from 'mint-ui';
 
 import AccountIcon from "../../assets/images/icons/account.png";
-import SafetyCenter from "../../assets/images/icons/safety.png";
+import SafetyIcon from "../../assets/images/icons/safety.png";
 import CardIcon from "../../assets/images/icons/card.png";
 import TransferIcon from "../../assets/images/icons/transfer.png";
+import LoanIcon from "../../assets/images/icons/loan.png";
 
 Vue.component(Swipe.name, Swipe);
 Vue.component(SwipeItem.name, SwipeItem);

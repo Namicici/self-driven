@@ -10,6 +10,9 @@
 		    <router-link to="/home/card"><img src="/assets/card.png"/></router-link>
 		    <router-link to="/home/transfer"><img src="/assets/transfer.png"/></router-link>
 		</div>
+		<div class="tab">
+		    <router-link to="/home/loan"><img src="/assets/loan.png"/></router-link>
+		</div>
 		<!--div v-on:click="jsonp"> jsonp test </div>
 		<div v-on:click="cors"> cors test </div-->
 		<div class="list">
