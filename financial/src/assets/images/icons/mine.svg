@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="65px" height="112px" viewBox="0 0 65 112" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 45 (43475) - http://www.bohemiancoding.com/sketch -->
+    <title>mine</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="material2" transform="translate(-808.000000, -201.000000)">
+            <g id="mine" transform="translate(767.000000, 202.000000)">
+                <text id="我的" font-family="STKaitiSC-Regular, Kaiti SC" font-size="36" font-weight="normal" fill="#4A4A4A">
+                    <tspan x="38" y="106">我的</tspan>
+                </text>
+                <g id="Group-3" transform="translate(44.000000, 0.000000)" stroke="#F5A623" stroke-width="2">
+                    <ellipse id="Oval-6" cx="30" cy="15.5" rx="15" ry="15.5"></ellipse>
+                    <path d="M0,62 C0,44.8791728 13.4314575,31 30,31 C46.5685425,31 60,44.8791728 60,62 L0,62 Z" id="Combined-Shape"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
