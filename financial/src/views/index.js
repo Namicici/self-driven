@@ -5,9 +5,9 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import router from './router.js';
 
-import HomeIcon from '../assets/images/icons/home.png';
-import LifeIcon from '../assets/images/icons/life.png';
-import MineIcon from '../assets/images/icons/mine.png';
+import HomeIcon from '../assets/images/icons/home.svg';
+import LifeIcon from '../assets/images/icons/life.svg';
+import MineIcon from '../assets/images/icons/mine.svg';
 
 /* 另一种一种适配方案
 let html = document.documentElement;

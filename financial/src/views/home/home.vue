@@ -5,13 +5,13 @@
 		</mt-swipe>
 
 		<div class="tab">
-		    <router-link to="/home/account"><img src="/assets/account.png"/></router-link>
-		    <router-link to="/home/safety"><img src="/assets/safety.png"/></router-link>
-		    <router-link to="/home/card"><img src="/assets/card.png"/></router-link>
-		    <router-link to="/home/transfer"><img src="/assets/transfer.png"/></router-link>
+		    <router-link to="/home/account"><img src="/assets/account.svg"/></router-link>
+		    <router-link to="/home/safety"><img src="/assets/safety.svg"/></router-link>
+		    <router-link to="/home/card"><img src="/assets/card.svg"/></router-link>
+		    <router-link to="/home/transfer"><img src="/assets/transfer.svg"/></router-link>
 		</div>
 		<div class="tab">
-		    <router-link to="/home/loan"><img src="/assets/loan.png"/></router-link>
+		    <router-link to="/home/loan"><img src="/assets/loan.svg"/></router-link>
 		</div>
 		<!--div v-on:click="jsonp"> jsonp test </div>
 		<div v-on:click="cors"> cors test </div-->

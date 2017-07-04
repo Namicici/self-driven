@@ -6,11 +6,11 @@ import CommonService from '../../services/common.js';
 import {Swipe, SwipeItem} from "mint-ui";
 import { Loadmore } from 'mint-ui';
 
-import AccountIcon from "../../assets/images/icons/account.png";
-import SafetyIcon from "../../assets/images/icons/safety.png";
-import CardIcon from "../../assets/images/icons/card.png";
-import TransferIcon from "../../assets/images/icons/transfer.png";
-import LoanIcon from "../../assets/images/icons/loan.png";
+import AccountIcon from "../../assets/images/icons/account.svg";
+import SafetyIcon from "../../assets/images/icons/safety.svg";
+import CardIcon from "../../assets/images/icons/card.svg";
+import TransferIcon from "../../assets/images/icons/transfer.svg";
+import LoanIcon from "../../assets/images/icons/loan.svg";
 
 Vue.component(Swipe.name, Swipe);
 Vue.component(SwipeItem.name, SwipeItem);
