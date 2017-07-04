@@ -16,7 +16,6 @@ Vue.component(Swipe.name, Swipe);
 Vue.component(SwipeItem.name, SwipeItem);
 Vue.component(Loadmore.name, Loadmore);
 
-
 Vue.component('test', {
 	render: function (createElement) {
 		return createElement(
@@ -25,7 +24,6 @@ Vue.component('test', {
 		)
 	}
 });
-
 
 module.exports = {
     data: function () {

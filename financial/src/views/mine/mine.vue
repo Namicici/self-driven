@@ -14,6 +14,10 @@
 		</mt-cell>
 		<div class="loading" v-if="show">Loading......</div>
 		<iframe class="download-iframe" v-bind:src="downloadUrl" v-on:load="downloadFinish"></iframe>
+
+		<mt-cell title="test custom keyboard">
+			<mt-button v-on:click="">how to call custom keyboard</mt-button>
+		</mt-cell>
 	</div>
 </template>
 

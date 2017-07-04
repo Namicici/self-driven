@@ -6,3 +6,40 @@
 	width: 100%;
 	height: $slideHeight;
 }
+
+.card-container{
+	li{
+		display: flex;
+		justify-content: space-around;
+		flex-wrap: wrap;
+		margin-top: 0.1rem;
+		background-color: #fff;
+		padding: 0.2rem 0.2rem;
+		.card{
+			flex-direction: column;
+			column-count: 2;
+			width: 100%;
+			div{
+				height: 1rem;
+				display: flex;
+				align-items: center;
+				img{
+					width:1rem;
+				}
+			}
+			.card-icon{
+				justify-content: flex-end;
+			}
+			.balance{
+				justify-content: flex-end;
+				color: red;
+			}
+		}
+		.operate{
+			display: flex;
+		    width: 100%;
+		    justify-content: space-around;
+			margin-top: 0.2rem;
+		}
+	}
+}

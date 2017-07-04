@@ -1,8 +1,15 @@
 'use strict';
 
 import Vue from 'vue';
+import CommonService from '../../../services/common.js';
 import Echarts from "../../../assets/libs/echarts.js";
 import Keyboard from "../../../components/keyboard/keyboard.vue";
+
+import BankCardIcom from "../../../assets/images/icons/bandByCar.png";
+
+import { Button } from 'mint-ui';
+
+Vue.component(Button.name, Button);
 
 Vue.component(Keyboard.name, Keyboard);
 
@@ -10,6 +17,8 @@ module.exports = {
 	data: function(){
 		return {
 			//focused: false
+			cards: [],
+			map: CommonService.map
 		}
 	},
 	methods: {
@@ -63,12 +72,18 @@ module.exports = {
 			    ]
 			});
 		},
-		safeInputFocused: function(){
-			//this.focused = true;
-			this.$emit('needSafeInputKeyboard', true);
+		getCardList: function(){
+			var self = this;
+			CommonService.http({
+				method: 'get',
+				url: '/account/list'
+			}).then(function(data){
+				self.cards = data;
+			})
 		}
 	},
 	mounted: function(){
+		this.getCardList();
 		this.initChart();
 	}
 }

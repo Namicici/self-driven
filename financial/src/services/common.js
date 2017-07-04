@@ -10,7 +10,14 @@ import Axios from 'axios';
 
 var jsonpID = 0;
 
-/* 封装cookie的读写方法 */
+/**
+* 封装cookie的读写方法
+*
+* @returns void
+* @date July 4, 2017
+* @author Sissi Lee
+* @editor
+*/
 var cookie = {
 	get: function(name){
 		var cookie = document.cookie;
@@ -36,6 +43,54 @@ var cookie = {
 			newCookie = newCookie + ',expire=' + expireTime;
 		}
 		document.cookie = newCookie;
+	}
+}
+
+/**
+* 常量的统一定义
+*
+* @returns void
+* @date July 4, 2017
+* @author Sissi Lee
+* @editor
+*/
+var constants = {
+	CARD_TYPE: {
+		DEBIT: '1', //借记卡
+		//CREDIT: '2' //信用卡
+		PASSBOOK: '0', //存折
+		CARGO: '3', //货记卡
+	},
+}
+
+
+/**
+* 映射关系
+*
+* @returns void
+* @date July 4, 2017
+* @author Sissi Lee
+* @editor
+*/
+var map = {
+	cardType: function(cardType){
+		switch (cardType) {
+			case constants.CARD_TYPE.DEBIT:
+				return '借记卡';
+				break;
+			case constants.CARD_TYPE.CREDIT:
+				return '信用卡';
+				break;
+			case constants.CARD_TYPE.PASSBOOK:
+				return '存折';
+				break;
+			case constants.CARD_TYPE.CARGO:
+				return '货记卡';
+				break;
+			default:
+				return '';
+				break;
+		}
 	}
 }
 
@@ -110,5 +165,7 @@ module.exports = {
 			document.head.appendChild(script);
 		});
 	},
-	cookie:cookie
+	cookie: cookie,
+	constants: constants,
+	map: map
 }

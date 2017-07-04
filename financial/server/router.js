@@ -14,12 +14,14 @@ var download = require('./handlers/file.js').download;
 var downloadTest = require('./handlers/file.js').downloadTest;
 var dbTest = require('./handlers/dbTest.js');
 var getIntroductInfo = require('./handlers/introduct.js');
+var account = require('./handlers/account.js');
 
 var mapping = {
 	'GET /api/ad/list': getAdList,
 	'GET /api/db/test': dbTest,
 	'GET /api/download/test': downloadTest,
-	'GET /api/introduct/intrInfo': getIntroductInfo
+	'GET /api/introduct/intrInfo': getIntroductInfo,
+	'GET /api/account/list': account.getAccountList
 }
 
 const MIME = {
