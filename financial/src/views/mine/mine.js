@@ -10,15 +10,25 @@ import CommonService from '../../services/common.js';
 import { Cell } from 'mint-ui';
 import { Button } from 'mint-ui';
 
+import FlagIcon from '../../assets/images/icons/flag.svg';
+
+import Pie from '../../components/pie/pie.vue';
+import Pie2 from '../../components/pie/pie2.vue';
+
 Vue.component(Cell.name, Cell);
 Vue.component(Button.name, Button);
+Vue.component(Pie.name, Pie);
+Vue.component(Pie2.name, Pie2);
 
 module.exports = {
 	data: function(){
 		return {
 			//focused: false
 			show: false,
-			download:false
+			download:false,
+			pieData:[{name:'4305', value:50}, {name:'3309', value:200}, {name:'7890', value:350}],
+			diameter: 200,
+			strokeWidth:16
 		}
 	},
 	methods: {

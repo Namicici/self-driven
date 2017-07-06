@@ -18,6 +18,8 @@
 		<mt-cell title="test custom keyboard">
 			<mt-button v-on:click="">how to call custom keyboard</mt-button>
 		</mt-cell>
+		<ss-pie v-bind:diameter="diameter" v-bind:stroke-width="strokeWidth" v-bind:percent-data="pieData"></ss-pie>
+		<ss-pie2 v-bind:diameter="diameter" v-bind:stroke-width="strokeWidth" v-bind:percent-data="pieData"></ss-pie2>
 	</div>
 </template>
 
