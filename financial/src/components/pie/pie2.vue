@@ -8,7 +8,7 @@
 			    <defs></defs>
 				<!-- 使用动画的方式画圆 -->
 		        <g id="material3" v-bind:stroke-width="strokeWidth" fill="none" fill-rule="evenodd">
-					<path v-for="(item,index) in displayData.data" v-bind:d="item.path" transform="translate(0, 0)" v-bind:stroke="item.color">
+					<path v-for="(item,index) in displayData.data" :d="item.path" transform="translate(0, 0)" :stroke="item.color">
 						<animateTransform
 							attributeName="transform"
 							attributeType="XML"
@@ -16,7 +16,7 @@
 							form="0 116 116"
 							v-bind:to="item.to"
 							v-bind:begin="item.begin"
-							dur="0.01s"
+							dur="0.5s"
 							fill="freeze"
 						/>
 					</path>
@@ -60,7 +60,7 @@
 					    width: 0.3rem;
 					    height: 0.3rem;
 						background-color: #ccc;
-						margin-right: 0.1rem;
+						margin-right: 0.3rem;
 					}
 				}
 			}
