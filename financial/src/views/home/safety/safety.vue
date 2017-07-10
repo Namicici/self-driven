@@ -2,7 +2,17 @@
 	<div class="page"></div>
 </template>
 
-<script src="./safety.js"></script>
-<style lang="sass">
-	@import "./safety.scss"
+<script>
+	'use strict';
+
+	module.exports = {
+		data: function(){
+			return {
+				hello: "this is mine safety page"
+			}
+		}
+	}
+</script>
+<style lang="less">
+	@import "../../../assets/scss/common.scss";
 </style>

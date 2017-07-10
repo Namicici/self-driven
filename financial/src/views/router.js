@@ -1,7 +1,7 @@
 "use strict";
 
 import VueRouter from 'vue-router';
-import App from './app.vue';
+import App from './app';
 
 /* 懒加载，按需加载*/
 const Home = r => require.ensure([], () => r(require("./home/home.vue")), 'home');

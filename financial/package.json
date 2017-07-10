@@ -30,6 +30,8 @@
     "rimraf": "^2.6.1",
     "sass-loader": "^6.0.3",
     "style-loader": "^0.14.1",
+    "less": "^2.7.2",
+    "less-loader": "^4.0.4",
     "vue-loader": "^11.1.4",
     "webpack": "^2.3.3",
     "webpack-dev-middleware": "^1.10.2",

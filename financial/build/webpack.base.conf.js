@@ -11,7 +11,7 @@ function resolve(dir){
 
 module.exports = {
 	entry: {
-		app: resolve('src/views/index.js'),
+		app: resolve('src/views/main.js'),
 		//personalCenter: './src/views/personalCenter/index.js'
 	},
 	output: {
@@ -63,6 +63,7 @@ module.exports = {
 		}]
 	},
 	resolve: {
+	    extensions: ['.js', '.vue', '.json'],
 		alias: {
 			vue: resolve('node_modules/vue/dist/vue.js'),
 			'vue-router': resolve('node_modules/vue-router/dist/vue-router.js'),

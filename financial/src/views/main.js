@@ -1,9 +1,9 @@
 "use strict";
 
-import flexible from '../assets/libs/flexible.js';
+import flexible from '../assets/libs/flexible';
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import router from './router.js';
+import router from './router';
 
 import HomeIcon from '../assets/images/icons/home.svg';
 import LifeIcon from '../assets/images/icons/life.svg';

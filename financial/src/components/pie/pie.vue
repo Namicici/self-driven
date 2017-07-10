@@ -62,7 +62,7 @@
 	</div>
 </template>
 
-<style lang="sass">
+<style lang="less">
 
 	.circle-load-svg {
 	    stroke-dasharray: 0 570;
@@ -128,7 +128,7 @@ const TEXT_GAP = 20;
 
 
 module.exports = {
-	name: 'ss-pie',
+	name: 'Pie',
 	props: {
 		percentData: Array,
 		duration: {
@@ -136,7 +136,7 @@ module.exports = {
 			default:2
 		},
 		colors: {
-			type: Number,
+			type: Array,
 			default: ['#7ED321', '#50E3C2', '#4A90E2', '#F5A623', '#9013FE']
 		}
 	},
