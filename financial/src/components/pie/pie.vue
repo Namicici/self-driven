@@ -101,12 +101,19 @@
 </style>
 
 <script>
-
+//屏幕像素宽度
 const SCREEN_WIDTH = window.screen.width * window.devicePixelRatio;
+//实际圆环直径
 const DIAMETER = SCREEN_WIDTH/3;
-const STROKE_WIDTH = 16 * window.devicePixelRatio/2;
-const SELECT_DIAMETER = DIAMETER +  STROKE_WIDTH * 2 + 4*2;
+//圆环厚度
+const STROKE_WIDTH = 20 * window.devicePixelRatio/2;
+//实际圆环与阴影的间隔
+const GAP = 4 * window.devicePixelRatio/2;
+//选中阴影环状直径
+const SELECT_DIAMETER = DIAMETER +  STROKE_WIDTH * 2 + GAP*2;
+//选中图例像素宽度
 const SELECT_LEGEND_WIDTH = 200 * window.devicePixelRatio/2;
+//选中图例像素高度
 const SELECT_LEGEND_HEIGHT = 100 * window.devicePixelRatio/2;
 
 module.exports = {
@@ -153,7 +160,7 @@ module.exports = {
 			if (!isVirtual){
 				var startPoint ={
 					x: this.width / 2,
-					y: STROKE_WIDTH * 2 + 4*window.devicePixelRatio/2
+					y: STROKE_WIDTH * 2 + GAP
 				};
 			}else {
 				var startPoint ={
