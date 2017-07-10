@@ -113,8 +113,14 @@ module.exports = {
 	name: 'ss-pie',
 	props: {
 		percentData: Array,
-		duration: Number,
-		colors: Array
+		duration: {
+			type: Number,
+			default:2
+		},
+		colors: {
+			type: Number,
+			default: ['#7ED321', '#50E3C2', '#4A90E2', '#F5A623', '#9013FE']
+		}
 	},
 	data: function(){
 		return {
