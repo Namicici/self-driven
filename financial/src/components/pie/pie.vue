@@ -1,18 +1,25 @@
 <template>
 	<div class="pie-container">
 		<div class="pie">
-			<svg :width="width" :height="width" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+			<svg :width="width" :height="height" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 			    <!-- Generator: Sketch 45 (43475) - http://www.bohemiancoding.com/sketch -->
 				<title>pie</title>
 			    <desc>Created with Sketch.</desc>
 			    <defs></defs>
-
 				<g id="pie-virtual" :stroke-width="strokeWidth" fill="none" fill-rule="evenodd">
-					<path v-for="(item2,index) in displayData.virtual.data"  :d="item2.path" transform="translate(0, 0)" :stroke="item2.color" >
+					<path v-for="(item2,index) in displayData.virtual.data" :stroke-dasharray="item2.dash" :stroke-dashoffset="item2.dash" :d="item2.path" transform="translate(0, 0)" :stroke="item2.color" :style="item2.colorStyle">
+						<animate
+							attributeName="stroke-dashoffset"
+							:form="item2.dash"
+							to="3"
+							:begin="item2.begin"
+							:dur="item2.dur"
+							fill="freeze"
+						/>
 					</path>
 				</g>
 		        <g id="pie" :stroke-width="strokeWidth" fill="none" fill-rule="evenodd">
-					<path v-for="(item,index) in displayData.real.data" :stroke-dasharray="item.dash" v-bind:stroke-dashoffset="item.dash" :d="item.path" transform="translate(0, 0)" :stroke="item.color" v-on:click="select(index)">
+					<path v-for="(item,index) in displayData.real.data" :stroke-dasharray="item.dash" :stroke-dashoffset="item.dash" :d="item.path" transform="translate(0, 0)" :stroke="item.color" v-on:click="select(index)">
 						<animate
 							:id="item.id"
 							attributeName="stroke-dashoffset"
@@ -24,6 +31,17 @@
 						/>
 					</path>
 		        </g>
+
+				<g id="pie-select-legned" v-if="!!rect">
+					<rect v-bind:x="rect.x"
+						v-bind:y="rect.y" :width="legendWidth" :height="legendHeight"
+						fill="#FFF" :stroke="rect.stroke" :stroke-width="1"
+						:transform="rect.transform" opacity="0.5"/>
+					<text>
+						<tspan :x="rect.lx" :y="rect.ly">尾号：{{rect.name}}</tspan>
+						<tspan :x="rect.lx" :y="rect.ly2">余额：{{rect.value}}</tspan>
+					</text>
+				</g>
 			</svg>
 		</div>
 
@@ -84,25 +102,32 @@
 
 <script>
 
+const SCREEN_WIDTH = window.screen.width * window.devicePixelRatio;
+const DIAMETER = SCREEN_WIDTH/3;
+const STROKE_WIDTH = 16 * window.devicePixelRatio/2;
+const SELECT_DIAMETER = DIAMETER +  STROKE_WIDTH * 2 + 4*2;
+const SELECT_LEGEND_WIDTH = 200 * window.devicePixelRatio/2;
+const SELECT_LEGEND_HEIGHT = 100 * window.devicePixelRatio/2;
+
 module.exports = {
 	name: 'ss-pie',
 	props: {
-		diameter: Number,
-		selectDiameter: Number,
-		strokeWidth: Number,
 		percentData: Array,
 		duration: Number,
 		colors: Array
 	},
 	data: function(){
 		return {
-			height: this.selectDiameter + this.strokeWidth * 2,
-			width: this.selectDiameter + this.strokeWidth * 2,
+			strokeWidth: STROKE_WIDTH,
+			legendHeight: SELECT_LEGEND_HEIGHT,
+			legendWidth: SELECT_LEGEND_WIDTH,
+			height: SELECT_DIAMETER + STROKE_WIDTH * 2,
+			width: SCREEN_WIDTH,
 			displayData: {
 				real: {},
 				virtual: {}
 			},
-			active: -1
+			rect:null
 		}
 	},
 	methods: {
@@ -111,22 +136,23 @@ module.exports = {
 				total: 0,
 				data: []
 			};
-			var r = convertData.r = diameter / 2 + this.strokeWidth / 2; //半径
+			var colors = JSON.parse(JSON.stringify(this.colors))
+			var r = convertData.r = diameter / 2; //半径
 			//圆心
 			var e = {
-				x: this.selectDiameter / 2 + this.strokeWidth / 2,
-				y: this.selectDiameter / 2 + this.strokeWidth / 2
+				x: this.width/2,
+				y: SELECT_DIAMETER / 2 + STROKE_WIDTH
 			}
 			//起始点
 			if (!isVirtual){
 				var startPoint ={
-					x: this.selectDiameter / 2 + this.strokeWidth / 2,
-					y: this.strokeWidth / 2 + this.strokeWidth + 4
+					x: this.width / 2,
+					y: STROKE_WIDTH * 2 + 4*window.devicePixelRatio/2
 				};
 			}else {
 				var startPoint ={
-					x: this.selectDiameter / 2 + this.strokeWidth / 2,
-					y: this.strokeWidth / 2
+					x: this.width/2,
+					y: STROKE_WIDTH
 				};
 			}
 
@@ -168,10 +194,14 @@ module.exports = {
 				endPoint.y = e.y - r * Math.cos(a * Math.PI / 180);
 
 				data[i].a = a;
-				data[i].color = this.colors[Math.round(Math.random() * 10)%this.colors.length];
-				data[i].colorStyle = 'background-color:' + data[i].color;
-				var index = this.colors.indexOf(data[i].color);
-				this.colors.splice(index, 1);
+				data[i].color = colors[Math.round(Math.random() * 10)%colors.length];
+				if (isVirtual){
+					data[i].colorStyle = 'opacity:0';
+				}else {
+					data[i].colorStyle = 'background-color:' + data[i].color;
+				}
+				var index = colors.indexOf(data[i].color);
+				colors.splice(index, 1);
 				data[i].endPoint = endPoint;
 				data[i].startPoint = startPoint;
 				data[i].isLargeCircle = a > 180 ? 1 : 0; //当度数大于180的时候画大圆
@@ -185,14 +215,34 @@ module.exports = {
 			return convertData;
 		},
 		select: function(index){
-			var self = this;
-			self.active = index;
-			this.displayData.virtual = this.caculate(this.selectDiameter, true);
+			var virtualData = this.displayData.virtual.data;
+			var realData = this.displayData.real.data;
+			for (var i = 0; i < virtualData.length; i++){
+				if (i == index){
+					virtualData[i].color = realData[i].color;
+					virtualData[i].colorStyle = 'opacity: 0.2';
+					var offset = event.offsetY + 100*window.devicePixelRatio/2 - this.height;
+					offset = offset > 0 ? -offset : 0
+					this.rect  = {
+						x: event.offsetX,
+						y: event.offsetY + offset,
+						lx: event.offsetX - 36*window.devicePixelRatio/2,
+						ly: event.offsetY + offset + 40*window.devicePixelRatio/2,
+						ly2: event.offsetY + offset + 80*window.devicePixelRatio/2,
+						transform: 'translate(' + -50*window.devicePixelRatio/2 + ' , 0)',
+						stroke: virtualData[i].color,
+						name: virtualData[i].name,
+						value: virtualData[i].value
+					}
+				}else {
+					virtualData[i].colorStyle = 'opacity: 0';
+				}
+			}
 		}
 	},
 	created: function(){
-		this.displayData.real = this.caculate(this.diameter);
-		this.displayData.virtual = this.caculate(this.selectDiameter, true);
+		this.displayData.real = this.caculate(DIAMETER);
+		this.displayData.virtual = this.caculate(SELECT_DIAMETER, true);
 	}
 }
 
