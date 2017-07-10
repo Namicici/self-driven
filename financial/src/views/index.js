@@ -17,7 +17,7 @@ html.style.fontSize = window.rem + 'px';
 console.log(html.style.fontSize);
 */
 
-flexible(window, window['lib'] || (window['lib'] = {}));
+//flexible(window, window['lib'] || (window['lib'] = {}));
 
 Vue.use(VueRouter);
 

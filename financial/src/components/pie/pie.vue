@@ -102,19 +102,30 @@
 
 <script>
 //屏幕像素宽度
-const SCREEN_WIDTH = window.screen.width * window.devicePixelRatio;
+const SCREEN_WIDTH = window.screen.width;
 //实际圆环直径
 const DIAMETER = SCREEN_WIDTH/3;
 //圆环厚度
-const STROKE_WIDTH = 20 * window.devicePixelRatio/2;
+const STROKE_WIDTH = 12;
 //实际圆环与阴影的间隔
-const GAP = 4 * window.devicePixelRatio/2;
+const GAP = 4;
 //选中阴影环状直径
 const SELECT_DIAMETER = DIAMETER +  STROKE_WIDTH * 2 + GAP*2;
 //选中图例像素宽度
-const SELECT_LEGEND_WIDTH = 200 * window.devicePixelRatio/2;
+const SELECT_LEGEND_WIDTH = 100;
 //选中图例像素高度
-const SELECT_LEGEND_HEIGHT = 100 * window.devicePixelRatio/2;
+const SELECT_LEGEND_HEIGHT = 50;
+//选中图例文字offsetX
+const SELECT_TEXT_OFFSETX = 8;
+//选中图例文字offsetY
+const SELECT_TEXT_OFFSETY = 20;
+//选中图例当鼠标坐标太低时，向上offsetY
+const SELECT_LEGEND_OFFSETY = SELECT_LEGEND_HEIGHT;
+//选中图例的起点X为鼠标点击坐标，向左offsetX
+const SELECT_LEGEND_OFFSETX = 16;
+//选中图例中两行字的间距
+const TEXT_GAP = 20;
+
 
 module.exports = {
 	name: 'ss-pie',
@@ -234,15 +245,15 @@ module.exports = {
 				if (i == index){
 					virtualData[i].color = realData[i].color;
 					virtualData[i].colorStyle = 'opacity: 0.2';
-					var offset = event.offsetY + 100*window.devicePixelRatio/2 - this.height;
+					var offset = event.offsetY + SELECT_LEGEND_OFFSETY - this.height;
 					offset = offset > 0 ? -offset : 0
 					this.rect  = {
 						x: event.offsetX,
 						y: event.offsetY + offset,
-						lx: event.offsetX - 36*window.devicePixelRatio/2,
-						ly: event.offsetY + offset + 40*window.devicePixelRatio/2,
-						ly2: event.offsetY + offset + 80*window.devicePixelRatio/2,
-						transform: 'translate(' + -50*window.devicePixelRatio/2 + ' , 0)',
+						lx: event.offsetX - SELECT_TEXT_OFFSETX,
+						ly: event.offsetY + offset + SELECT_TEXT_OFFSETY,
+						ly2: event.offsetY + offset + SELECT_TEXT_OFFSETY + TEXT_GAP,
+						transform: 'translate(' + -SELECT_LEGEND_OFFSETX + ' , 0)',
 						stroke: virtualData[i].color,
 						name: virtualData[i].name,
 						value: virtualData[i].value
@@ -258,5 +269,4 @@ module.exports = {
 		this.displayData.virtual = this.caculate(SELECT_DIAMETER, true);
 	}
 }
-
 </script>
