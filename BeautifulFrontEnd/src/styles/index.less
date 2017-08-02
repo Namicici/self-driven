@@ -1,0 +1,151 @@
+@import "./custom";
+
+@media only screen and (min-device-width: 1080px) and (max-device-width: 1920px) and (-webkit-min-device-pixel-ratio: 1) {
+    html {
+        font-size: 140px
+    }
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
+    html {
+        font-size: 80px
+    }
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) {
+    html {
+        font-size: 80px
+    }
+}
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+    html {
+        font-size: 100px
+    }
+}
+
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) {
+    html {
+        font-size: 100px
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html, body{
+    width: 100%;
+    height: 100%;
+    background-color: @background-color-base;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+body{
+    font-size: 0.14rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul, li {
+    list-style: none;
+}
+
+.page {
+    height: 100%;
+    .page-content {
+        min-height: 100%;
+        height: auto;
+    }
+    .page-wrapper {
+        position: relative;
+        min-height: 100%;
+        height: auto;
+        margin-bottom: -48px;
+        .footer-btn-push {
+            height: 48px;
+        }
+        .captcha-tips {
+            // font-weight: 600;
+            padding: 10px;
+            font-size: @font-size-base;
+            span {
+                color: red;
+                padding: 0 5px;
+            }
+        }
+    }
+    .footer-btn {
+        height: 48px;
+        padding: 0 7px;
+    }
+    .banner {
+        height: 2rem;
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .nav {
+        width: 100%;
+        display: flex;
+        padding: 0.13rem 0;
+        background: @body-background;
+        div {
+            flex: 1;
+            text-align: center;
+            font-size: @font-size-base;
+            color: @text-color;
+            img {
+                height: 0.3rem;
+            }
+            &:active {
+                opacity: .6;
+            }
+        }
+    }
+    .news {
+        margin-top: 0.15rem;
+        background: @body-background;
+        li {
+            a {
+                position: relative;
+                display: block;
+                width: 100%;
+                padding: 0.1rem;
+                color: @text-color;
+                padding-right: 1.2rem;
+                .content {
+                    padding: 0 0.05rem;
+                    .title {
+                        width: 100%;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                        font-size: @font-size-base;
+                        font-weight: normal;
+                    }
+                    label {
+                        font-size: @font-size-small;
+                        color: @text-gray-color;
+                    }
+                }
+                img {
+                    position: absolute;
+                    top: 50%;
+                    margin-top: -0.3rem;
+                    right: 0.1rem;
+                    width: 1rem;
+                    height: 0.6rem;
+
+                }
+                &:active {
+                    opacity: .6;
+                }
+            }
+        }
+    }
+}
