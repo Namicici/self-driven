@@ -4,39 +4,36 @@
  * @created June 8, 2017
  */
 
-"use strict";
-
-var http = require('http');
-var port = 9001;
-var fs = require('fs');
-var urllib = require('url');
-var router = require('./router.js');
-var bodyParse = require('body-parser');
-var log = require('./common/log.js');
+var http = require('http')
+var port = 9001
+var fs = require('fs')
+var urllib = require('url')
+var router = require('./router.js')
+// var bodyParse = require('body-parser')
+var log = require('./common/log.js')
 
 fs.mkdir('./dist/files', '0777', function (err) {
-    if (err){
-      log(err);
+    if (err) {
+        log(err)
     }
-});
-
-var server = http.createServer(function(req, res){
-    var pathname = urllib.parse(req.url).pathname;
-    var params = urllib.parse(req.url, true);
-    var params = params.query;
-    var data = req.body;
-    var method = req.method.toUpperCase();
-
-    router(method, pathname, params, data, res);
 })
 
-server.listen(port);
-log('server started at ' + port);
+var server = http.createServer(function (req, res) {
+    var pathname = urllib.parse(req.url).pathname
+    var params = urllib.parse(req.url, true)
+    params = params.query
+    var data = req.body
+    var method = req.method.toUpperCase()
+
+    router(method, pathname, params, data, res)
+})
+
+server.listen(port)
+log('server started at ' + port)
 
 // app.use("/", express.static(__dirname + "/dist/"));
 
-//require('./server/routes')(app);
-
+// require('./server/routes')(app);
 
 // app.get('/', function(req, res){
 //     var params = urllib.parse(req.url, true);
@@ -76,7 +73,7 @@ log('server started at ' + port);
 //     for (var i = 0; i < 15; i++){
 //         response.push({title:'方付通借力短信验证码' + Math.random(), content:'在网购日益频繁的当下，网络带给人们便利的同时，也带来了很多安全隐患', pictureUrl:''});
 //     }
-// 	res.send(response);
+//  res.send(response);
 // })
 //
 //

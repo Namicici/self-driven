@@ -12,8 +12,7 @@ var webpackConfig = require('./webpack.dev.conf')
 var port = process.env.PORT || 8080
 
 var proxyTable = {
-    // target: 'http://localhost:9001',
-    // changeOrigin: true
+    // target: 'http://localhost:9001'
 }
 
 var app = express()
@@ -39,6 +38,7 @@ Object.keys(proxyTable).forEach(function (context) {
   if (typeof options === 'string') {
     options = { target: options }
   }
+  console.log(options)
   app.use(proxyMiddleware(options.filter || context, options))
 })
 

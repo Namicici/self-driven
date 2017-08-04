@@ -1,97 +1,109 @@
 <template>
-    <div class="page home">
-        <div class="page-content">
-            <div class="banner">
-                <mt-swipe :auto="4000">
-                    <mt-swipe-item v-for="item in adList" :key="item.pk1">
-                        <a :href="item.linkPath"><img :src="item.adPath" :alt="item.adTitle"/></a>
-                    </mt-swipe-item>
-                </mt-swipe>
+    <div class="page">
+        <!-- <mt-cell title="test mongodb">
+            <mt-button v-on:click="dbTest">db test</mt-button>
+        </mt-cell> -->
+        <section class="section">
+            <header>小知识</header>
+            <div class="topic">
+                <a href="#/debris/download">下载</a>
             </div>
-            <div class="nav">
-                <div v-on:click="$router.push('/account')">
-                    <img src="../assets/img/account/account.png"/>
-                    <p>我的账户</p>
-                </div>
-                <div v-on:click="$router.push('/card')">
-                    <img src="../assets/img/card/card.png"/>
-                    <p>银行卡</p>
-                </div>
-                <div v-on:click="$router.push('/transfer/index')">
-                    <img src="../assets/img/transfer/transfer.png"/>
-                    <p>转账汇款</p>
-                </div>
-                <div v-on:click="$router.push('/safe')">
-                    <img src="../assets/img/safe/safety.png"/>
-                    <p>安全中心</p>
-                </div>
-            </div>
-            <ul class="news">
-                <li v-for="item in bottomList" :key="item.bizCategory">
-                    <a href="javascript:void(0)" v-on:click="$router.push('/introduct/introductCategory')">
-                        <div class="content">
-                            <h3 class="title">{{ item.bizTitle }}</h3>
-                            <label>{{ item.businessDesc }}</label>
-                        </div>
-                        <img v-bind:src="item.pictureUrl" alt="">
-                    </a>
-                </li>
-            </ul>
-        </div>
+            <!-- <mt-cell title="test download">
+                <mt-button v-on:click="download">download test</mt-button>
+            </mt-cell>
+            <mt-cell title="test download a">
+                <a href="http://localhost:9001/api/download/test" download>download test 现在常用方法</a>
+            </mt-cell>
+            <mt-cell title="test download 同页面接口方式下载">
+                <mt-button v-on:click="downloadSamePage">download test</mt-button>
+            </mt-cell> -->
+        </section>
+        <!-- <div class="loading" v-if="show">Loading......</div>
+        <iframe class="download-iframe" v-bind:src="downloadUrl" v-on:load="downloadFinish"></iframe>
+
+        <mt-cell title="test custom keyboard">
+            <mt-button v-on:click="">how to call custom keyboard</mt-button>
+        </mt-cell>
+        <ss-pie :percent-data="pieData"></ss-pie>
+        <input v-on:focus="visible = true;" v-on:blur="visible = false;"/> -->
+        <!--ss-keyboard focus="visible"></ss-keyboard-->
     </div>
 </template>
 
 <script>
 
-import { checkLogin, login, getNews, getAdList } from '../utils/businessCommon'
+// import { Cell, Button } from 'mint-ui'
+// import Pie from '../components/Pie'
 
 export default {
+    // components: {Cell, Button, Pie},
     data () {
         return {
-            adList: [],
-            bottomList: []
-        }
-    },
-    activated () {
-        if (this.adList.length === 0) {
-            this.getAdList('FINANCE_BIZ') // FINANCE_BIZ 金融服务 广告分类
-        }
-        if (this.bottomList.length === 0) {
-            this.getBottomList(1, false)
+            // focused: false
+            show: false,
+            download: false,
+            pieData: [{name: '4305', value: 50}, {name: '3309', value: 200}, {name: '7890', value: 350}],
+            diameter: 200,
+            strokeWidth: 16
         }
     },
     methods: {
-        /**
-         * 获取banner列表
-         */
-        getAdList (adpCode) {
-            getAdList({adpCode: adpCode}).then(data => {
-                this.adList = data.data.LIST
+        dbTest () {
+            this.$http({
+                method: 'get',
+                url: '/db/test'
+            }).then((data) => {
+                console.log('get data: ' + data)
+            }, (error) => {
+                console.log('test db error: ' + error)
             })
         },
-        // 加载底部list条目
-        /*
-          * @param {Object} bizCategory 分类编号,仅在点击上方小方块刷新list时候起作用
-          * @param {Object} firstFlag  标明调用的页面是不是一级页面（即微信3 x 5菜单直接跳转）
-        */
-        getBottomList (firstFlag, bizCategory) {
-            let request = {}
-            // bizCategory分类编号，若是首页底部菜单则不传bizCategory
-            bizCategory ? request.bizCategory = bizCategory : request.firstFlag = firstFlag
-            getNews(request).then(data => {
-                this.bottomList = data.data.LIST
+        download () {
+            // 测试download请求发出后，后端返回流之前操作其他接口是否会导致卡断
+            window.open('http://localhost:9001/api/download/test')
+        },
+        downloadSamePage () {
+            this.show = true
+            this.$http({
+                method: 'get',
+                url: '/download/test'
+            }).then((data) => {
+                this.download = true
+                this.downloadUrl = 'http://localhost:9001/api/download/test'
+                // self.show = false;
+                // self.download = false;
+            }, () => {
+                this.show = false
+                this.download = false
             })
+        },
+        downloadFinish () {
+            this.show = false
+            this.download = false
+            console.log('download complete')
         }
     },
-    beforeCreate () {
-        if (checkLogin()) {
-            login()
+    mounted: function () {
+    }
+}
+
+</script>
+<style lang="less">
+@import "../styles/index.less";
+
+.section{
+    background-color: @body-background;
+    header{
+        color: @title-color;
+        padding: 0.24rem;
+        font-size: 0.18rem;
+    }
+    .topic{
+        a{
+            font-size: 0.16rem;
+            padding: 0 0.16rem;
         }
     }
 }
-</script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style lang="less">
-@import "../styles/index";
 </style>

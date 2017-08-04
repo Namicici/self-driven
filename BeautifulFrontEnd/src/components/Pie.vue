@@ -83,7 +83,7 @@ const SELECT_LEGEND_OFFSETX = 16
 const TEXT_GAP = 20
 
 export default {
-    name: 'ui-pie',
+    name: 'ss-pie',
     props: {
         percentData: Array, // {name:a,value:b}
         nameText: String,
