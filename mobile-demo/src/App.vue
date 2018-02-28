@@ -11,7 +11,6 @@
 
 <script>
 import { mapState } from 'vuex'
-// import { Indicator } from 'mint-ui'
 import UiProgressBar from './components/ProgressBar'
 
 export default {

@@ -1,8 +1,8 @@
 var path = require('path')
 var config = require('../config')
 var utils = require('./utils')
-var projectRoot = path.resolve(__dirname, '../')
-var fs = require('fs')
+// var projectRoot = path.resolve(__dirname, '../')
+// var fs = require('fs')
 var vueLoaderConfig = require('./vue-loader.conf')
 
 var argv = require('yargs').argv

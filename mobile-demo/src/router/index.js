@@ -13,6 +13,7 @@ Router.prototype.replace = function (location, onComplete, onAbort) {
 Vue.use(Router)
 
 const router = new Router({
+    mode: 'history',
     routes: [
         {
             path: '/',
