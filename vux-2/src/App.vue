@@ -197,6 +197,7 @@ export default {
       return this.componentName ? `Demo/${this.componentName}` : 'Demo/~~'
     },
     viewTransition () {
+      console.log(this.direction)
       if (!this.direction) return ''
       return 'vux-pop-' + (this.direction === 'forward' ? 'in' : 'out')
     }

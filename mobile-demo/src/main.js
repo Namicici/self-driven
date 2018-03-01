@@ -6,22 +6,10 @@ import { sync } from 'vuex-router-sync'
 import Axios from './utils/http'
 import * as filters from './utils/filters'
 import FastClick from 'fastclick'
-import MintUI from 'mint-ui'
-import 'mint-ui/lib/style.css'
-
-Vue.use(MintUI)
 
 Vue.config.productionTip = false
 
 Vue.prototype.$http = Axios
-
-// 组件全局钩子
-Vue.mixin({
-    beforeRouteLeave (to, from, next) {
-        MintUI.MessageBox.close()
-        next()
-    }
-})
 
 Object.keys(filters).forEach(key => {
     Vue.filter(key, filters[key])
@@ -31,7 +19,7 @@ Object.keys(filters).forEach(key => {
 sync(store, router)
 
 router.beforeEach((to, from, next) => {
-    store.commit('updateLoading', true)
+    // store.commit('updateLoading', true)
     // 更新文档标题
     if (to.meta.title) {
         document.title = to.meta.title
@@ -39,7 +27,8 @@ router.beforeEach((to, from, next) => {
     next()
 })
 router.afterEach((to, from) => {
-    store.commit('updateLoading', false)
+    // 转移到libs/base中的mounted函数中，挂载完成后表示页面加载
+    // store.commit('updateLoading', false)
 })
 
 /* eslint-disable no-new */

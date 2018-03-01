@@ -20,9 +20,9 @@ ul{
 
 </style>
 <script>
-import Code from '../components/Code'
+// import Code from '../components/Code'
 export default {
-    components: {Code},
+    // components: {Code},
     data () {
         return {
 

@@ -88,7 +88,7 @@ export default {
         }
     },
     mounted: function () {
-    }
+    },
 }
 
 </script>
@@ -99,13 +99,13 @@ export default {
     background-color: @body-background;
     header{
         color: @title-color;
-        padding: 0.24rem;
-        font-size: 0.18rem;
+        padding: 24px;
+        font-size: 18px;
     }
     .topic{
         a{
-            font-size: 0.16rem;
-            padding: 0 0.16rem;
+            font-size: 16px;
+            padding: 0 16px;
         }
     }
 }

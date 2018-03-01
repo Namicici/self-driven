@@ -9,7 +9,7 @@ var webpack = require('webpack')
 var proxyMiddleware = require('http-proxy-middleware')
 var webpackConfig = require('./webpack.dev.conf')
 
-var port = process.env.PORT || 8080
+var port = process.env.PORT || 8219
 
 var proxyTable = {
     // target: 'http://localhost:9001'
