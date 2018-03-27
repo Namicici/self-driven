@@ -5,9 +5,9 @@
             <router-view></router-view>
       	</keep-alive>
     </transition>
-    <div v-if="$loadingRouteData">
+    <!-- <div>
         <ss-progressbar ref="ProgressBar" class="page-loading-progress"></ss-progressbar>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -17,7 +17,7 @@ import SsProgressbar from './components/progressbar/index'
 
 export default {
     name: 'app',
-    components: {SsProgressbar},
+    // components: {SsProgressbar},
     data () {
         return {
             transformName: 'vux-pop-in'
@@ -77,7 +77,7 @@ export default {
   will-change: transform;
   transition: all 500ms;
   height: 100%;
-  top: 46px;
+//   top: 46px;
   position: absolute;
   backface-visibility: hidden;
   perspective: 1000;

@@ -1,10 +1,15 @@
 <template>
     <div class="page">
+        <header>
+            <p class="header-return"></p>
+            <p>Index</p>
+            <p></p>
+        </header>
         <!-- <mt-cell title="test mongodb">
             <mt-button v-on:click="dbTest">db test</mt-button>
         </mt-cell> -->
-        <section class="section">
-            <header>小知识</header>
+        <section>
+            <h3>小知识</h3>
             <div class="topic">
                 <a href="/debris/download">下载</a>
             </div>
@@ -95,19 +100,11 @@ export default {
 <style lang="less">
 @import "../styles/index.less";
 
-.section{
-    background-color: @body-background;
-    header{
-        color: @title-color;
-        padding: 24px;
-        font-size: 18px;
-    }
     .topic{
         a{
             font-size: 16px;
             padding: 0 16px;
         }
     }
-}
 
 </style>
