@@ -2,14 +2,14 @@
     <div class="page">
         <header>
             <p class="header-return"></p>
-            <p>Index</p>
+            <p>Home</p>
             <p></p>
         </header>
         <!-- <mt-cell title="test mongodb">
             <mt-button v-on:click="dbTest">db test</mt-button>
         </mt-cell> -->
         <section>
-            <h3>小知识</h3>
+            <h3 class="section-name">小知识</h3>
             <div class="topic">
                 <a href="/debris/download">下载</a>
             </div>

@@ -6,7 +6,8 @@ html, body{
     width: 100%;
     height: 100%;
     position: relative;
-    background-color: @body-background;    
+    background-color: @body-background;
+    color: @text-color;
 }
 
 .page{
@@ -36,10 +37,13 @@ header{
             display: block;
             transform: rotate(45deg);
         }
-
     }
 }
 
 section{
-    background: #fff;
+    background: @section-color;
+    .section-name{
+        color: @title-color;
+        padding: 12px;
+    }
 }

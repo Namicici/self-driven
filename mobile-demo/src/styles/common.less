@@ -1,30 +1,35 @@
+/* 假设设计图是designWidth为750px下的，给出的默认字体是designFontSize，
+ * 那么实际尺寸下的fontSize为：realWidth/designWidth*designFontSize/defaultFontSize*dpr
+ * 那么如果designWidth是在750px下，而我们的参考调试手机是iphone6（375px），
+ * 那么对于长度我们需要将750px下的长度除2后再换算成相对单位
+ */
 
-@media only screen and (min-device-width: 1080px) and (max-device-width: 1920px) and (-webkit-min-device-pixel-ratio: 1) {
-    html {
-        font-size: 140px
-    }
-}
+// @media only screen and (min-device-width: 1080px) and (max-device-width: 1920px) and (-webkit-min-device-pixel-ratio: 1) {
+//     html {
+//         font-size: 140px
+//     }
+// }
 
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
-    html {
-        font-size: 80px
-    }
-}
+// @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
+//     html {
+//         font-size: 80px
+//     }
+// }
 
-@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) {
-    html {
-        font-size: 80px
-    }
-}
+// @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) {
+//     html {
+//         font-size: 80px
+//     }
+// }
 
-@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
-    html {
-        font-size: 100px
-    }
-}
+// @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+//     html {
+//         font-size: 100px
+//     }
+// }
 
-@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) {
-    html {
-        font-size: 100px
-    }
-}
+// @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) {
+//     html {
+//         font-size: 100px
+//     }
+// }
