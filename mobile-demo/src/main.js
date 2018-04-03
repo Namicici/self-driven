@@ -1,11 +1,10 @@
 import Vue from 'vue'
 import App from './App'
-import router from './router'
-import store from './store'
+import {createRouter} from './router'
+import {createStore} from './store'
 import { sync } from 'vuex-router-sync'
 import Axios from './utils/http'
 import * as filters from './utils/filters'
-import FastClick from 'fastclick'
 
 Vue.config.productionTip = false
 
@@ -15,30 +14,30 @@ Object.keys(filters).forEach(key => {
     Vue.filter(key, filters[key])
 })
 
-// 同步router状态到store
-sync(store, router)
+export function createApp(){
+    /* eslint-disable no-new */
+    let router = createRouter()
+    let store = createStore()
 
-router.beforeEach((to, from, next) => {
-    // store.commit('updateLoading', true)
-    // 更新文档标题
-    if (to.meta.title) {
-        document.title = to.meta.title
+    router.prototype._replace = router.prototype.replace
+
+    router.prototype.replace = function (location, onComplete, onAbort) {
+        // 更新公共参数isReplace为true，表示是replace
+        store.commit('updateReplace', true)
+        return this._replace(location, onComplete, onAbort)
     }
-    next()
-})
-router.afterEach((to, from) => {
-    // 转移到libs/base中的mounted函数中，挂载完成后表示页面加载
-    // store.commit('updateLoading', false)
-})
 
-/* eslint-disable no-new */
-new Vue({
-    el: '#app',
-    router,
-    store,
-    template: '<App/>',
-    components: { App }
-})
+    let app = new Vue({
+        el: '#app',
+        router,
+        store,
+        template: '<App/>',
+        components: { App }
+    })
 
-// For Mobile Only
-FastClick.attach(document.body)
+    // 同步router状态到store
+    sync(store, router)
+
+    return {app, router, store}
+
+}
