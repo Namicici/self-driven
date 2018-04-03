@@ -1,3 +1,5 @@
-build/*.js
-dist/
-mock/
+/build/
+/config/
+/dist/
+/*.js
+/test/unit/coverage/

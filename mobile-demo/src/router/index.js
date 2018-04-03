@@ -20,7 +20,7 @@ const router = new Router({
             name: 'Index',
             component: resolve => require(['../views/Index.vue'], resolve),
             meta: {
-                title: '美美的前端首页',
+                title: 'mobile-demo',
                 state: 0
             }
         }, {
@@ -28,7 +28,7 @@ const router = new Router({
             name: 'Download',
             component: resolve => require(['../views/Download.vue'], resolve),
             meta: {
-                title: '下载'
+                title: 'download'
             }
         }
     ]
