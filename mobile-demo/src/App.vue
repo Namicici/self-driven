@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <transition :name="transformName">
-        <keep-alive exclude="Account">
+        <keep-alive>
             <router-view></router-view>
       	</keep-alive>
     </transition>
@@ -13,7 +13,7 @@
 
 <script>
 import { mapState } from 'vuex'
-import SsProgressbar from './components/progressbar/index'
+// import SsProgressbar from './components/progressbar/index'
 
 export default {
     name: 'app',

@@ -1,7 +1,7 @@
 <template>
     <div class="page">
         <header>
-            <p class="header-return"></p>
+            <p></p>
             <p>Home</p>
             <p></p>
         </header>
@@ -12,6 +12,7 @@
             <h3 class="section-name">小知识</h3>
             <div class="topic">
                 <a href="/debris/download">下载</a>
+                <a href="/debris/prefetch">预取</a>
             </div>
             <div>
                 cookie中的expires/max-age不设置（默认是1970年的时间）的时候就是一个session-cookie，
@@ -67,10 +68,10 @@ export default {
                 console.log('test db error: ' + error)
             })
         },
-        download () {
-            // 测试download请求发出后，后端返回流之前操作其他接口是否会导致卡断
-            window.open('http://localhost:9001/api/download/test')
-        },
+        // download () {
+        //     // 测试download请求发出后，后端返回流之前操作其他接口是否会导致卡断
+        //     window.open('http://localhost:9001/api/download/test')
+        // },
         downloadSamePage () {
             this.show = true
             this.$http({
@@ -93,7 +94,7 @@ export default {
         }
     },
     mounted: function () {
-    },
+    }
 }
 
 </script>

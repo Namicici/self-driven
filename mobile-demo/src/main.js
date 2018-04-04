@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import App from './App'
-import {createRouter} from './router'
-import {createStore} from './store'
+import { createRouter } from './router'
+import { createStore } from './store'
 import { sync } from 'vuex-router-sync'
 import Axios from './utils/http'
 import * as filters from './utils/filters'
@@ -14,30 +14,27 @@ Object.keys(filters).forEach(key => {
     Vue.filter(key, filters[key])
 })
 
-export function createApp(){
+export function createApp () {
     /* eslint-disable no-new */
     let router = createRouter()
     let store = createStore()
 
-    router.prototype._replace = router.prototype.replace
+    router.constructor.prototype._replace = router.constructor.prototype.replace
 
-    router.prototype.replace = function (location, onComplete, onAbort) {
+    router.constructor.prototype.replace = function (location, onComplete, onAbort) {
         // 更新公共参数isReplace为true，表示是replace
         store.commit('updateReplace', true)
         return this._replace(location, onComplete, onAbort)
     }
 
     let app = new Vue({
-        el: '#app',
         router,
         store,
-        template: '<App/>',
-        components: { App }
+        render: h => h(App)
     })
 
     // 同步router状态到store
     sync(store, router)
 
     return {app, router, store}
-
 }

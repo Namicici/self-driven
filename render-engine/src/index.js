@@ -18,7 +18,6 @@ const renderer = createBundleRenderer(serverBundle, {
     clientManifest
 })
 
-
 const main = serve(path.join(__dirname, '../'))
 server.use(main)
 
@@ -26,7 +25,6 @@ server.use(async (ctx, next) => {
     console.log(ctx)
     await next()
 })
-
 
 async function renderPromise (context){
     return new Promise((resolve, reject)=> {
@@ -40,18 +38,18 @@ async function renderPromise (context){
     })
 }
 
-router.get('/record', async (ctx, next) => {
+router.get('/*', async (ctx, next) => {
     const context = { url: ctx.request.url }
     ctx.response.body = await renderPromise(context)
     next()
 })
 
 
-const nginxHost = '10.24.248.22'
-router.all(/\/app/i, async (ctx, next) => {
+const serverHost = 'localhost:9001'
+router.all(/\/api/i, async (ctx, next) => {
     let path = ctx.request.path
     let req = {
-        url: 'http://' + nginxHost + path,
+        url: 'http://' + serverHost + path,
         header: ctx.request.header,
         method: ctx.request.method
     }
@@ -63,8 +61,10 @@ router.all(/\/app/i, async (ctx, next) => {
             if (err){
                 reject(err)
             }else if (res.statusCode == 200 || res.statusCode == 608){
-                let result = JSON.parse(body)
-                result.response = res
+                let result = {
+                    data: JSON.parse(body),
+                    response: res
+                }
                 resolve(result)
             }else{
                 reject(err)

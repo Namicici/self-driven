@@ -3,14 +3,14 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 
-export function createRouter(){
+export function createRouter () {
     return new Router({
         mode: 'history',
         routes: [
             {
                 path: '/',
                 name: 'Index',
-                component: resolve => require(['../views/Index.vue'], resolve),
+                component: () => import('../views/index.vue'),
                 meta: {
                     title: 'mobile-demo',
                     state: 0
@@ -18,12 +18,18 @@ export function createRouter(){
             }, {
                 path: '/debris/download',
                 name: 'Download',
-                component: resolve => require(['../views/Download.vue'], resolve),
+                component: () => import('../views/download.vue'),
                 meta: {
                     title: 'download'
+                }
+            }, {
+                path: '/debris/prefetch',
+                name: 'Prefetch',
+                component: () => import('../views/prefetch.vue'),
+                meta: {
+                    title: 'prefetch'
                 }
             }
         ]
     })
 }
-

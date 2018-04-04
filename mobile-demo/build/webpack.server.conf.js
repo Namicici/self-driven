@@ -4,7 +4,9 @@ const merge = require('webpack-merge')
 const base = require('./webpack.base.conf')
 const nodeExternals = require('webpack-node-externals')
 const VueSSRServerPlugin = require('vue-server-renderer/server-plugin')
-var ExtractTextPlugin = require('extract-text-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+// const HtmlWebpackPlugin = require('html-webpack-plugin')
+// const config = require('../config')
 
 var isProduction = process.env.NODE_ENV === 'production'
 
@@ -33,6 +35,20 @@ module.exports = merge(base, {
         })
     },
     plugins: [
+        // new HtmlWebpackPlugin({
+        //     filename: '../dist/index.template.html',
+        //     template: 'index.template.html',
+        //     inject: true,
+        //     minify: {
+        //         // removeComments: true,
+        //         collapseWhitespace: true,
+        //         removeAttributeQuotes: true
+        //         // more options:
+        //         // https://github.com/kangax/html-minifier#options-quick-reference
+        //     },
+        //     // necessary to consistently work with multiple chunks via CommonsChunkPlugin
+        //     chunksSortMode: 'dependency'
+        // }),
         new ExtractTextPlugin({
             filename: utils.assetsPath('css/[name].[contenthash].css')
         }),

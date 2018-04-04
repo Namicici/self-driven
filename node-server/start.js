@@ -12,11 +12,11 @@ var router = require('./router.js')
 // var bodyParse = require('body-parser')
 var log = require('./common/log.js')
 
-fs.mkdir('./dist/files', '0777', function (err) {
-    if (err) {
-        log(err)
-    }
-})
+// fs.mkdir('./dist/files', '0777', function (err) {
+//     if (err) {
+//         log(err)
+//     }
+// })
 
 var server = http.createServer(function (req, res) {
     var pathname = urllib.parse(req.url).pathname

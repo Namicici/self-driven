@@ -84,7 +84,7 @@ server.use(function () {
     };
 }());
 
-router.get('/record', function () {
+router.get('/*', function () {
     var _ref3 = (0, _asyncToGenerator3.default)( /*#__PURE__*/_regenerator2.default.mark(function _callee3(ctx, next) {
         var context;
         return _regenerator2.default.wrap(function _callee3$(_context3) {
@@ -113,8 +113,8 @@ router.get('/record', function () {
     };
 }());
 
-var nginxHost = '10.24.248.22';
-router.all(/\/app/i, function () {
+var serverHost = 'localhost:9001';
+router.all(/\/api/i, function () {
     var _ref4 = (0, _asyncToGenerator3.default)( /*#__PURE__*/_regenerator2.default.mark(function _callee5(ctx, next) {
         var path, req, promise;
         return _regenerator2.default.wrap(function _callee5$(_context5) {
@@ -123,7 +123,7 @@ router.all(/\/app/i, function () {
                     case 0:
                         path = ctx.request.path;
                         req = {
-                            url: 'http://' + nginxHost + path,
+                            url: 'http://' + serverHost + path,
                             header: ctx.request.header,
                             method: ctx.request.method
                         };
@@ -142,9 +142,11 @@ router.all(/\/app/i, function () {
                                                     if (err) {
                                                         reject(err);
                                                     } else if (res.statusCode == 200 || res.statusCode == 608) {
-                                                        result = JSON.parse(body);
+                                                        result = {
+                                                            data: JSON.parse(body),
+                                                            response: res
+                                                        };
 
-                                                        result.response = res;
                                                         resolve(result);
                                                     } else {
                                                         reject(err);

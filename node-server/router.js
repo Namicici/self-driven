@@ -7,21 +7,23 @@
 'use strict';
 
 var log = require('./common/log.js');
-var getAdList = require('./handlers/ad.js');
+// var getAdList = require('./handlers/ad.js');
 var handlerError = require('./handlers/errorHandling.js');
 var path = require('path');
 var download = require('./handlers/file.js').download;
 var downloadTest = require('./handlers/file.js').downloadTest;
 var dbTest = require('./handlers/dbTest.js');
-var getIntroductInfo = require('./handlers/introduct.js');
-var account = require('./handlers/account.js');
+// var getIntroductInfo = require('./handlers/introduct.js');
+// var account = require('./handlers/account.js');
+var renderTest = require('./handlers/renderTest').test;
 
 var mapping = {
-	'GET /api/ad/list': getAdList,
+	// 'GET /api/ad/list': getAdList,
 	'GET /api/db/test': dbTest,
 	'GET /api/download/test': downloadTest,
-	'GET /api/introduct/intrInfo': getIntroductInfo,
-	'GET /api/account/list': account.getAccountList
+	// 'GET /api/introduct/intrInfo': getIntroductInfo,
+	// 'GET /api/account/list': account.getAccountList,
+	'GET /api/test/render': renderTest
 }
 
 const MIME = {
