@@ -10,7 +10,7 @@ export function createRouter () {
             {
                 path: '/',
                 name: 'Index',
-                component: () => import('../views/index.vue'),
+                component: resolve => require(['../views/index.vue'], resolve),
                 meta: {
                     title: 'mobile-demo',
                     state: 0
@@ -18,14 +18,14 @@ export function createRouter () {
             }, {
                 path: '/debris/download',
                 name: 'Download',
-                component: () => import('../views/download.vue'),
+                component: resolve => require(['../views/download.vue'], resolve),
                 meta: {
                     title: 'download'
                 }
             }, {
                 path: '/debris/prefetch',
                 name: 'Prefetch',
-                component: () => import('../views/prefetch.vue'),
+                component: resolve => require(['../views/prefetch.vue'], resolve),
                 meta: {
                     title: 'prefetch'
                 }
