@@ -1,13 +1,13 @@
 var path = require('path')
 var utils = require('./utils')
 // var config = require('../config')
-var webpack = require('webpack')
+// var webpack = require('webpack')
 var merge = require('webpack-merge')
 var baseWebpackConfig = require('./webpack.prod.conf')
 // var HtmlWebpackPlugin = require('html-webpack-plugin')
-var ExtractTextPlugin = require('extract-text-webpack-plugin')
-var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
-var WebpackScpPlugin = require('./webpack-scp-plugin')
+// var ExtractTextPlugin = require('extract-text-webpack-plugin')
+// var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
+// var WebpackScpPlugin = require('./webpack-scp-plugin')
 var VueSSRClientPlugin = require('vue-server-renderer/client-plugin')
 
 var isProduction = process.env.NODE_ENV === 'production'
@@ -27,9 +27,6 @@ var webpackConfig = merge(baseWebpackConfig, {
         chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')
     },
     plugins: [
-        new webpack.DefinePlugin({
-            'process.env.VUE_ENV': '"client"'
-        }),
         // new webpack.optimize.CommonsChunkPlugin({
         //     name: 'vendor',
         //     minChunks: function (module, count) {
@@ -53,10 +50,10 @@ var webpackConfig = merge(baseWebpackConfig, {
     ]
 })
 
-if (process.env.npm_config_deploy) {
-    webpackConfig.plugins.push(
-        new WebpackScpPlugin(config[process.env.NODE_ENV].deploy)
-    )
-}
+// if (process.env.npm_config_deploy) {
+//     webpackConfig.plugins.push(
+//         new WebpackScpPlugin(config[process.env.NODE_ENV].deploy)
+//     )
+// }
 
 module.exports = webpackConfig

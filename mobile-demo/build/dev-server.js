@@ -1,7 +1,3 @@
-if (!process.env.NODE_ENV) {
-    process.env.NODE_ENV = 'development'
-}
-
 var opn = require('opn')
 var path = require('path')
 var express = require('express')

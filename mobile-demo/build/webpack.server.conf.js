@@ -5,6 +5,7 @@ const base = require('./webpack.base.conf')
 const nodeExternals = require('webpack-node-externals')
 const VueSSRServerPlugin = require('vue-server-renderer/server-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const path = require('path')
 // const HtmlWebpackPlugin = require('html-webpack-plugin')
 // const config = require('../config')
 
@@ -15,6 +16,7 @@ module.exports = merge(base, {
     devtool: '#source-map',
     entry: './src/entry-server.js',
     output: {
+        path: path.resolve(__dirname, '../dist'),
         filename: 'server-bundle.js',
         libraryTarget: 'commonjs2'
     },

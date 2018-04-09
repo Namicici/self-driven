@@ -1,7 +1,7 @@
 import Axios from 'axios'
-import {MessageBox} from 'mint-ui'
+import { MessageBox } from 'mint-ui'
 
-Axios.defaults.baseURL = 'http://localhost:9001/api'
+Axios.defaults.baseURL = process.env.BASE_URL
 // Add a request interceptor
 Axios.interceptors.request.use(function (config) {
     // Do something before request is sent

@@ -5,10 +5,6 @@ const express = require('express')
 const resolve = file => path.resolve(__dirname, file)
 const { createBundleRenderer } = require('vue-server-renderer')
 
-if (!process.env.NODE_ENV) {
-    process.env.NODE_ENV = 'development'
-}
-
 const isProd = process.env.NODE_ENV === 'production'
 const serverInfo =
   `express/${require('express/package.json').version} ` +
@@ -29,7 +25,7 @@ function createRenderer (bundle, options) {
 
 let renderer
 let readyPromise
-const templatePath = resolve('../index.html')
+const templatePath = resolve('../dist/index.html')
 if (isProd) {
     const template = fs.readFileSync(templatePath, 'utf-8')
     const bundle = require('../dist/vue-ssr-server-bundle.json')
@@ -74,7 +70,7 @@ function render (req, res) {
     }
 
     const context = {
-        title: 'Zing Pay',
+        title: 'Mobile Demo',
         url: req.url
     }
     renderer.renderToString(context, (err, html) => {
