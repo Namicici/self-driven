@@ -11,12 +11,10 @@
         <section>
             <h3 class="section-name">小知识</h3>
             <div class="topic">
-                <a href="/debris/download">下载</a>
-                <a href="/debris/prefetch">预取</a>
-            </div>
-            <div>
-                cookie中的expires/max-age不设置（默认是1970年的时间）的时候就是一个session-cookie，
-                这种类型的cookie在浏览器不关闭的时候有效，关闭后就删除了 https://yq.aliyun.com/articles/53643
+                <a href="/tips/download">下载</a>
+                <a href="/tips/prefetch">预取</a>
+                <a href="/tips/cookie">Cookie</a>
+                <a href="/tips/adaptive">移动端适配演示</a>
             </div>
             <!-- <mt-cell title="test download">
                 <mt-button v-on:click="download">download test</mt-button>

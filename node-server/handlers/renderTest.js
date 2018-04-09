@@ -11,7 +11,11 @@ var log = require('../common/log.js')
 function test (params, data, res) {
     log('test pre fetch for ssr')
     var result = {
-        test: '测试服务器渲染数据预取'
+        code: '0000',
+        message: 'ok',
+        data: {
+            test: '测试服务器渲染数据预取'
+        }
     }
     res.write(JSON.stringify(result))
     res.end()

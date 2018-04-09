@@ -16,18 +16,32 @@ export function createRouter () {
                     state: 0
                 }
             }, {
-                path: '/debris/download',
+                path: '/tips/download',
                 name: 'Download',
                 component: resolve => require(['../views/download.vue'], resolve),
                 meta: {
                     title: 'download'
                 }
             }, {
-                path: '/debris/prefetch',
+                path: '/tips/prefetch',
                 name: 'Prefetch',
                 component: resolve => require(['../views/prefetch.vue'], resolve),
                 meta: {
                     title: 'prefetch'
+                }
+            }, {
+                path: '/tips/cookie',
+                name: 'Cookie',
+                component: resolve => require(['../views/cookie.vue'], resolve),
+                meta: {
+                    title: 'Cookie'
+                }
+            }, {
+                path: '/tips/adaptive',
+                name: 'Adaptive',
+                component: resolve => require(['../views/Adaptive.vue'], resolve),
+                meta: {
+                    title: 'Adaptive'
                 }
             }
         ]

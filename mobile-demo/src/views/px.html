@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>test</title>
+        <style>
+            body{
+                margin: 0;
+                padding: 0;
+            }
+            .w414{
+                width: 414px;
+                background: red;
+                height: 60px;
+            }
+            .border1px{
+                border-bottom: solid 1px teal;
+                margin-top: 1px;
+            }
+        </style>
+    </head>
+    <body>
+        <h3>不使用移动端适配</h3>
+        <div class="w414">414px</div>
+        <p>假设我们的UI是以iphone6 plus为基准设计的，在设计图上有一个414px的块，如果使用像素表示，那么在375的iphone6下就会出现滚动条，实际我们希望在iphone6的时候长度是变化的，比如上面这种情况我们希望长度到375px而不是414px了。</p>
+        
+        <h3>border为1px的时候，这里的1px对应的物理像素根据DPI不同而不同</h3>
+        <div class="border1px">border:1px问题</div>
+    </body>
+</html>
