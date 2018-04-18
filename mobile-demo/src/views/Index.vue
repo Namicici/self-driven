@@ -38,6 +38,16 @@
     </div>
 </template>
 
+<style lang="less">
+@import "../styles/index.less";
+.topic{
+    a{
+        padding: 0 16px;
+    }
+}
+
+</style>
+
 <script>
 
 // import { Cell, Button } from 'mint-ui'
@@ -96,14 +106,3 @@ export default {
 }
 
 </script>
-<style lang="less">
-@import "../styles/index.less";
-
-    .topic{
-        a{
-            font-size: 16px;
-            padding: 0 16px;
-        }
-    }
-
-</style>

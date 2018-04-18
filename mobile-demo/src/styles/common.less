@@ -2,7 +2,11 @@
  * 那么实际尺寸下的fontSize为：realWidth/designWidth*designFontSize/defaultFontSize*dpr
  * 那么如果designWidth是在750px下，而我们的参考调试手机是iphone6（375px），
  * 那么对于长度我们需要将750px下的长度除2后再换算成相对单位
- */
+
+ * 采用vw可以文本和间距都使用vw来计算即可，不用特别针对文字做处理
+ *
+ *
+*/
 
 // @media only screen and (min-device-width: 1080px) and (max-device-width: 1920px) and (-webkit-min-device-pixel-ratio: 1) {
 //     html {

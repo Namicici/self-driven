@@ -6,6 +6,8 @@ const webpack = require('webpack')
 const clientConfig = require('./webpack.client.conf')
 const serverConfig = require('./webpack.server.conf')
 
+console.log(process.env.NODE_ENV)
+
 const readFile = (lfs, file) => {
     try {
         let filename = path.join(clientConfig.output.path, file)
@@ -32,7 +34,6 @@ module.exports = function setupDevServer (app, templatePath, cb) {
             })
         }
     }
-
     // read template from disk and watch
     template = fs.readFileSync(templatePath, 'utf-8')
 
