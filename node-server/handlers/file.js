@@ -14,11 +14,12 @@ function download (file, type, res) {
     rs.pipe(res)
 }
 
-function downloadTest (params, data, res) {
+function downloadTest (req, res) {
     setTimeout(function () {
         log('begin to create file!')
         file.copySync('./server/files/test.xlsx', './dist/files/test.xlsx')
         var content = fs.readFileSync('./dist/files/test.xlsx')
+
         res.writeHead(200, {
             'Content-Type': 'application/octet-stream', // 二进制流，不知道下载文件类型
             'Content-Disposition': 'attachment; filename=test.xlsx'})

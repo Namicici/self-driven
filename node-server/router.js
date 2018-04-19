@@ -7,23 +7,20 @@
 'use strict';
 
 var log = require('./common/log.js');
-// var getAdList = require('./handlers/ad.js');
+var urllib = require('url')
 var handlerError = require('./handlers/errorHandling.js');
 var path = require('path');
 var download = require('./handlers/file.js').download;
 var downloadTest = require('./handlers/file.js').downloadTest;
 var dbTest = require('./handlers/dbTest.js');
-// var getIntroductInfo = require('./handlers/introduct.js');
-// var account = require('./handlers/account.js');
 var renderTest = require('./handlers/renderTest').test;
+var upload = require('./handlers/upload.js').upload;
 
 var mapping = {
-	// 'GET /api/ad/list': getAdList,
 	'GET /api/db/test': dbTest,
 	'GET /api/download/test': downloadTest,
-	// 'GET /api/introduct/intrInfo': getIntroductInfo,
-	// 'GET /api/account/list': account.getAccountList,
-	'GET /api/test/render': renderTest
+	'GET /api/test/render': renderTest,
+	'POST /api/common/file/upload': upload
 }
 
 const MIME = {
@@ -37,7 +34,12 @@ const MIME = {
     js: 'application/javascript'
 };
 
-function router(method, pathname, params, data, res){
+function router(req, res){
+    var pathname = urllib.parse(req.url).pathname
+    var params = urllib.parse(req.url, true)
+    params = params.query
+	var method = req.method.toUpperCase()
+
 	if (pathname == '/'){
 		pathname = '/index.html';
 	}
@@ -47,10 +49,11 @@ function router(method, pathname, params, data, res){
 		download(file, type, res);
 		return;
 	}
+	log('api: ' + pathname)
 
 	var handlerFun = mapping[method + ' ' + pathname];
 	if (typeof(handlerFun) == 'function'){
-		handlerFun(params, data, res);
+		handlerFun(req, res);
 	}else {
 		handlerError(9404, res);
 	}

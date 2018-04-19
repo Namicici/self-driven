@@ -87,7 +87,8 @@ module.exports = {
     plugins: [
         new webpack.DefinePlugin({
             'process.env': {
-                BASE_URL: JSON.stringify(config[process.env.NODE_ENV].baseURL)
+                BASE_URL: JSON.stringify(config[process.env.NODE_ENV].baseURL),
+                PREFETCH_BASEURL: JSON.stringify(config[process.env.NODE_ENV].prefetchBaseURL)
             }
         })
     ]

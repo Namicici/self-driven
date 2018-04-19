@@ -3,6 +3,7 @@ import Axios from '../utils/http'
 function getTestRenderReq () {
     let promise = Axios({
         method: 'get',
+        baseURL: process.env.PREFETCH_BASEURL,
         url: '/test/render'
     })
     return promise

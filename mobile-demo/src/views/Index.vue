@@ -15,6 +15,7 @@
                 <a href="/tips/prefetch">预取</a>
                 <a href="/tips/cookie">Cookie</a>
                 <a href="/tips/adaptive">移动端适配演示</a>
+                <a href="/tips/upload">上传</a>
             </div>
             <!-- <mt-cell title="test download">
                 <mt-button v-on:click="download">download test</mt-button>
@@ -45,7 +46,6 @@
         padding: 0 16px;
     }
 }
-
 </style>
 
 <script>

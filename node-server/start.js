@@ -7,7 +7,6 @@
 var http = require('http')
 var port = 9001
 var fs = require('fs')
-var urllib = require('url')
 var router = require('./router.js')
 // var bodyParse = require('body-parser')
 var log = require('./common/log.js')
@@ -19,14 +18,12 @@ var log = require('./common/log.js')
 // })
 
 var server = http.createServer(function (req, res) {
-    var pathname = urllib.parse(req.url).pathname
-    var params = urllib.parse(req.url, true)
-    params = params.query
-    var data = req.body
-    var method = req.method.toUpperCase()
-
-    router(method, pathname, params, data, res)
+    router(req, res)
 })
 
 server.listen(port)
 log('server started at ' + port)
+
+process.on("uncaughtException", function(){
+    log('got error')
+})

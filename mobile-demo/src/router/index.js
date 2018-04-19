@@ -39,9 +39,16 @@ export function createRouter () {
             }, {
                 path: '/tips/adaptive',
                 name: 'Adaptive',
-                component: resolve => require(['../views/Adaptive.vue'], resolve),
+                component: resolve => require(['../views/adaptive.vue'], resolve),
                 meta: {
                     title: 'Adaptive'
+                }
+            }, {
+                path: '/tips/upload',
+                name: 'Upload',
+                component: resolve => require(['../views/upload.vue'], resolve),
+                meta: {
+                    title: 'Upload'
                 }
             }
         ]

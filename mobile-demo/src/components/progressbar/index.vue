@@ -16,10 +16,10 @@ export default {
     name: 'ss-progress',
     mixins: [Base],
     props: {
-        // percent: {
-        //     type: Number,
-        //     default: 0
-        // },
+        percent: {
+            type: Number,
+            default: 0
+        },
         showCancel: {
             type: Boolean,
             default: true
@@ -27,7 +27,7 @@ export default {
     },
     data () {
         return {
-            percent: 0
+            // percent: 0
         }
     },
     methods: {
@@ -35,9 +35,9 @@ export default {
             this.$emit('on-cancel')
         }
     },
-    created () {
-        this.percent = 100
-    }
+    // created () {
+    //     this.percent = 100
+    // }
 }
 </script>
 

@@ -4,7 +4,7 @@ var MongoClient = require('mongodb').MongoClient
 
 const dbUri = 'mongodb://localhost/financial'
 
-function testDB (params, data, res) {
+function testDB (req, res) {
     MongoClient.connect(dbUri, (err, db) => {
         log('mongo connected')
         db.createCollection('user', {

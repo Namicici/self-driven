@@ -122,12 +122,10 @@ router.all(/\/api/i, function () {
                 switch (_context5.prev = _context5.next) {
                     case 0:
                         path = ctx.request.path;
-                        req = {
-                            url: 'http://' + serverHost + path,
-                            header: ctx.request.header,
-                            method: ctx.request.method
-                        };
+                        req = JSON.stringify(ctx.request);
 
+                        req = JSON.parse(req);
+                        req.url = 'http://' + serverHost + path;
                         console.log('---------------------------------');
                         console.log(req);
                         console.log('---------------------------------');
@@ -165,15 +163,15 @@ router.all(/\/api/i, function () {
                                 };
                             }());
                         });
-                        _context5.next = 8;
+                        _context5.next = 10;
                         return promise;
 
-                    case 8:
+                    case 10:
                         ctx.response.body = _context5.sent;
 
                         next();
 
-                    case 10:
+                    case 12:
                     case 'end':
                         return _context5.stop();
                 }

@@ -48,11 +48,9 @@ router.get('/*', async (ctx, next) => {
 const serverHost = 'localhost:9001'
 router.all(/\/api/i, async (ctx, next) => {
     let path = ctx.request.path
-    let req = {
-        url: 'http://' + serverHost + path,
-        header: ctx.request.header,
-        method: ctx.request.method
-    }
+    let req = JSON.stringify(ctx.request)
+    req = JSON.parse(req)
+    req.url = 'http://' + serverHost + path
     console.log('---------------------------------')
     console.log(req)
     console.log('---------------------------------')

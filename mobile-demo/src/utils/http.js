@@ -1,5 +1,5 @@
 import Axios from 'axios'
-import { MessageBox } from 'mint-ui'
+// import { MessageBox } from 'mint-ui'
 
 Axios.defaults.baseURL = process.env.BASE_URL
 // Add a request interceptor
@@ -18,7 +18,7 @@ Axios.interceptors.response.use(function (response) {
     return response.data
 }, function (error) {
     // Do something with response error
-    MessageBox({title: '错误提示', message: error.response.data.message})
+    // MessageBox({title: '错误提示', message: error.response.data.message})
     return Promise.reject(error)
 })
 

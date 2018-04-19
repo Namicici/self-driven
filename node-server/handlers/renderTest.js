@@ -8,7 +8,7 @@ var fs = require('fs')
 var file = require('../common/utils.js').file
 var log = require('../common/log.js')
 
-function test (params, data, res) {
+function test (req, res) {
     log('test pre fetch for ssr')
     var result = {
         code: '0000',

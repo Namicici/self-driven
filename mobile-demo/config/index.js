@@ -11,6 +11,7 @@ module.exports = {
         assetsPublicPath: '/',
         proxyTable: {},
         baseURL: 'http://localhost:8090/api',
+        prefetchBaseURL: 'http://localhost:8090/api',
 
         productionSourceMap: false,
 
@@ -49,7 +50,8 @@ module.exports = {
         // assetsRoot: path.resolve(__dirname, '../dist'),
         assetsSubDirectory: 'static',
         assetsPublicPath: '/dist/',
-        baseURL: 'http://localhost:9001/api',
+        baseURL: 'http://localhost:3000/api',
+        prefetchBaseURL: 'http://localhost:9001/api',
 
         /**
          * Source Maps
@@ -78,7 +80,8 @@ module.exports = {
         // assetsRoot: path.resolve(__dirname, '../dist'),
         assetsSubDirectory: 'static',
         assetsPublicPath: '/dist/',
-        baseURL: 'http://localhost:9001/api',
+        baseURL: 'http://localhost:3000/api',
+        prefetchBaseURL: 'http://localhost:9001/api',
 
         /**
          * Source Maps

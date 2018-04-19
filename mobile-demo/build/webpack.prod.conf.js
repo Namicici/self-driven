@@ -26,15 +26,6 @@ const webpackConfig = merge(baseWebpackConfig, {
         chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')
     },
     plugins: [
-        new UglifyJsPlugin({
-            uglifyOptions: {
-                compress: {
-                    warnings: false
-                }
-            },
-            sourceMap: config[process.env.NODE_ENV].productionSourceMap,
-            parallel: true
-        }),
         // extract css into its own file
         new ExtractTextPlugin({
             filename: utils.assetsPath('css/[name].[contenthash].css'),
@@ -112,6 +103,17 @@ const webpackConfig = merge(baseWebpackConfig, {
         ])
     ]
 })
+if (process.env.NODE_ENV === 'production') {
+    webpackConfig.plugins.push(
+        new UglifyJsPlugin({
+            uglifyOptions: {
+                comments: false
+            },
+            sourceMap: config[process.env.NODE_ENV].productionSourceMap,
+            parallel: true
+        })
+    )
+}
 
 if (config[process.env.NODE_ENV].productionGzip) {
     const CompressionWebpackPlugin = require('compression-webpack-plugin')
