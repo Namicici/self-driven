@@ -1,7 +1,7 @@
 <template>
     <div class="page">
         <header>
-            <p class="header-return"></p>
+            <p v-on:click="back" class="header-return"></p>
             <p>Download</p>
             <p></p>
         </header>
@@ -37,15 +37,15 @@ export default {
 
         }
     },
-    asyncData ({ store, route }) {
-        // 触发 action 后，会返回 Promise
-        return store.dispatch('fetchItem', route.params.id)
-    },
+    // asyncData ({ store, route }) {
+    //     // 触发 action 后，会返回 Promise
+    //     return store.dispatch('fetchItem', route.params.id)
+    // },
     computed: {
         // 从 store 的 state 对象中的获取 item。
-        item () {
-            return this.$store.state.items[this.$route.params.id]
-        }
+        // item () {
+        //     return this.$store.state.items[this.$route.params.id]
+        // }
     }
 }
 </script>

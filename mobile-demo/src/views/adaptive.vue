@@ -1,7 +1,7 @@
 <template>
     <div class="page">
         <header>
-            <p class="header-return"></p>
+            <p v-on:click="back" class="header-return"></p>
             <p>Adaptive Tips</p>
             <p></p>
         </header>

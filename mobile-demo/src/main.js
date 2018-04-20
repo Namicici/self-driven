@@ -26,6 +26,13 @@ export function createApp () {
         store.commit('updateReplace', true)
         return this._replace(location, onComplete, onAbort)
     }
+    Vue.mixin({
+        methods: {
+            back (step = 1) {
+                this.$router.back(-step)
+            }
+        }
+    })
 
     let app = new Vue({
         router,

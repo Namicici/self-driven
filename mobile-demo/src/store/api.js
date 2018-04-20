@@ -13,6 +13,7 @@ export function fetchItem (id) {
     let mapping = {
         'testRender': getTestRenderReq
     }
+    console.log('fetchItem id: ' + id)
     let handlerFun = mapping[id]
     if (typeof (handlerFun) === 'function') {
         return handlerFun()
