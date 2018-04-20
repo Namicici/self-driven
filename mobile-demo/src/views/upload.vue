@@ -92,20 +92,23 @@ export default {
             let reader = new FileReader()
             reader.onload = this.onLoaded
             reader.onprogress = this.displayProgress
-            for (var i = 0; i < this.files.length; i++){
-                let file = this.files[i]
+            // for (var i = 0; i < this.files.length; i++){
+                // let file = this.files[i]
                 let formdata = new FormData()
-                formdata.append('file', file)
+                for (let i = 0; i < this.files.length; i++){
+                    formdata.append('file', this.files[i])   
+                }
                 this.$http({
                     method: 'post',
                     url: '/common/file/upload',
                     data: formdata,
-                    onUploadProgress: this.loadProgress 
+                    onUploadProgress: this.loadProgress,
+                    baseURL: process.env.FILE_URL
                 }).then((data)=>{
                     console.log(data)
-                    reader.readAsDataURL(file)
+                    // reader.readAsDataURL(file)
                 })
-            }
+            // }
         }
 
     }

@@ -5,42 +5,61 @@
  */
 
 var fs = require('fs')
-var file = require('../common/utils.js').file
 var log = require('../common/log.js')
+var formidable = require('formidable')
 
 function upload (req, res) {
     log('************** upload file *****************')
-    var body = []
-	req.on('data', function(err, chunk){
-        log('uploading...')
-        if (err) {
-            log(err)
-            let result = {
+    let formdata = new formidable.IncomingForm()
+    formdata.uploadDir = './files/upload/'
+    formdata.keepExtensions = true
+    formdata.multiples = true
+
+    formdata.parse(req, function(err, fields, files){
+        if (err){
+            res.write(JSON.stringify({
                 code: '0001',
-                message: '上传文件失败',
-            }
-            res.write(JSON.stringify(result))
+                message: err
+            }))
             res.end()
-        } else {
-            body.push(chunk)
+            return
         }
-	})
-	req.on('end', function(){
-        var buf = Buffer.concat(body)
-        log(body)
-        fs.writeFile('../files/' + req.file.filename, function(err, data) {
-            log(data)
-            log('************** upload file end *****************')
-            let result = {
-                code: '0000',
-                message: 'ok',
-                data: {
-                    fileId: '808809'
-                }
+        log('*********** Rename upload temp file name **********')
+        let result = null
+        if (files.file && (files.file instanceof Array)){
+            log('multiple files uploaded')
+            result = []
+            for (let i = 0; i < files.file.length; i++){
+                // fs.rename(files.file[i].path, formdata.uploadDir + files.file[i].name, function(err){
+                //     if (err){
+                //         log('rename error '+ files.file[i].path + ' to ' + formdata.uploadDir + files.file[i].name)
+                //         result.push({
+                //             path: files.file[i].path
+                //         })
+                //     } else {
+                //         result.push({
+                //             path: './upload/' + files.file[i].name
+                //         })
+                //     }
+                // })
+                fs.renameSync(files.file[i].path, formdata.uploadDir + files.file[i].name)
+                result.push({
+                    path: formdata.uploadDir + files.file[i].name
+                })
             }
-            res.write(JSON.stringify(result))
-            res.end()
-        })
+        }else{
+            fs.renameSync(files.file.path, formdata.uploadDir + files.file.name)
+            result = {
+                path: formdata.uploadDir + files.file.name
+            }
+        }
+        log('*********** End rename upload temp file name **********')
+        res.write(JSON.stringify({
+            code: '0000',
+            message: 'ok',
+            data: result
+        }))
+        res.end()
     })
 }
 

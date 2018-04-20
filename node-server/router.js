@@ -40,6 +40,27 @@ function router(req, res){
     params = params.query
 	var method = req.method.toUpperCase()
 
+	log('method: ' + method + ' ' + pathname)
+
+	if (method === 'OPTIONS') {
+		res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000')
+		res.setHeader('Access-Control-Allow-Credentials', true) // allow cookie
+		res.setHeader('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
+		res.setHeader('Access-Control-Allow-Headers',
+			'Content-Type, Authorization, Content-Length, X-Requested-With, X-Custom-Header, token, Cookie')
+		res.end()
+		return
+	}
+
+	if (pathname.indexOf('upload') >= 0){
+        res.setHeader('Content-Type', 'application/json')
+		res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000')
+		res.setHeader('Access-Control-Allow-Credentials', true) // allow cookie
+		res.setHeader('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
+		res.setHeader('Access-Control-Allow-Headers',
+			'Content-Type, Authorization, Content-Length, X-Requested-With, X-Custom-Header, token, Cookie')
+	}
+
 	if (pathname == '/'){
 		pathname = '/index.html';
 	}
@@ -49,7 +70,6 @@ function router(req, res){
 		download(file, type, res);
 		return;
 	}
-	log('api: ' + pathname)
 
 	var handlerFun = mapping[method + ' ' + pathname];
 	if (typeof(handlerFun) == 'function'){

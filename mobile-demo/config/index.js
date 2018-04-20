@@ -12,6 +12,7 @@ module.exports = {
         proxyTable: {},
         baseURL: 'http://localhost:8090/api',
         prefetchBaseURL: 'http://localhost:8090/api',
+        fileURL: 'http://localhost:8090/api',
 
         productionSourceMap: false,
 
@@ -52,6 +53,7 @@ module.exports = {
         assetsPublicPath: '/dist/',
         baseURL: 'http://localhost:3000/api',
         prefetchBaseURL: 'http://localhost:9001/api',
+        fileURL: 'http://localhost:9001/api',
 
         /**
          * Source Maps

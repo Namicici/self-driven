@@ -1,0 +1,12 @@
+{
+    "author": {
+        "name": "namicici"
+    },
+    "dependencies": {
+        "formidable": "^1.2.1"
+    },
+    "devDependencies": {},
+    "scripts": {
+        "start": "node start.js"
+    }
+}
