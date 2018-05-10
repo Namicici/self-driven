@@ -50,6 +50,13 @@ export function createRouter () {
                 meta: {
                     title: 'Upload'
                 }
+            }, {
+                path: '/tips/center',
+                name: 'Center',
+                component: resolve => require(['../views/center.vue'], resolve),
+                meta: {
+                    title: 'Center'
+                }
             }
         ]
     })

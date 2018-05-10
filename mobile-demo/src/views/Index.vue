@@ -16,6 +16,7 @@
                 <a href="/tips/cookie">Cookie</a>
                 <a href="/tips/adaptive">移动端适配演示</a>
                 <a href="/tips/upload">上传</a>
+                <a href="/tips/center">css（居中、布局、小技巧等）</a>
             </div>
             <!-- <mt-cell title="test download">
                 <mt-button v-on:click="download">download test</mt-button>
