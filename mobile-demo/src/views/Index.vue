@@ -18,6 +18,9 @@
                 <a href="/tips/upload">上传</a>
                 <a href="/tips/center">css（居中、布局、小技巧等）</a>
             </div>
+            <canvas id="topic" ref="topic">
+                <p>当不支持canvas的时候显示这里的内容</p>
+            </canvas>
             <!-- <mt-cell title="test download">
                 <mt-button v-on:click="download">download test</mt-button>
             </mt-cell>
@@ -43,9 +46,20 @@
 <style lang="less">
 @import "../styles/index.less";
 .topic{
+    overflow: -webkit-paged-y;
     a{
         padding: 0 16px;
+        &:nth-child(2n):-webkit-any-link{
+            top: 16px;
+            color: green;
+            position: relative;
+        }
     }
+}
+#topic{
+    background-color: antiquewhite;
+    width: 100%;
+    margin-top: 16px;
 }
 </style>
 
@@ -100,9 +114,18 @@ export default {
             this.show = false
             this.download = false
             console.log('download complete')
+        },
+        initCanvas () {
+            if (!this.$refs['topic'].getContext){
+                console.log('不支持canvas')
+                return
+            }
+            let ctx = this.$refs['topic'].getContext('2d')
+
         }
     },
-    mounted: function () {
+    mounted () {
+        this.initCanvas()
     }
 }
 
