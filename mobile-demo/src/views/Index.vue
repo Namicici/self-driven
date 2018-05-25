@@ -1,26 +1,16 @@
 <template>
     <div class="page">
-        <header>
-            <p></p>
-            <p>Home</p>
-            <p></p>
-        </header>
+        <ss-header :title="'Home'" :isShowBackArrow="false"></ss-header>
         <!-- <mt-cell title="test mongodb">
             <mt-button v-on:click="dbTest">db test</mt-button>
         </mt-cell> -->
         <section>
             <h3 class="section-name">小知识</h3>
             <div class="topic">
-                <a href="/tips/download">下载</a>
-                <a href="/tips/prefetch">预取</a>
-                <a href="/tips/cookie">Cookie</a>
-                <a href="/tips/adaptive">移动端适配演示</a>
-                <a href="/tips/upload">上传</a>
-                <a href="/tips/center">css（居中、布局、小技巧等）</a>
+                <a :href="item.url" v-for="item in texts" :key="item.url">{{item.title}}</a>
             </div>
-            <canvas id="topic" ref="topic">
-                <p>当不支持canvas的时候显示这里的内容</p>
-            </canvas>
+            <random-item-canvas :data="texts" :height="200" @click="routeTo"></random-item-canvas>
+            
             <!-- <mt-cell title="test download">
                 <mt-button v-on:click="download">download test</mt-button>
             </mt-cell>
@@ -47,6 +37,7 @@
 @import "../styles/index.less";
 .topic{
     overflow: -webkit-paged-y;
+     background-color: antiquewhite;
     a{
         padding: 0 16px;
         &:nth-child(2n):-webkit-any-link{
@@ -56,20 +47,13 @@
         }
     }
 }
-#topic{
-    background-color: antiquewhite;
-    width: 100%;
-    margin-top: 16px;
-}
 </style>
 
 <script>
-
-// import { Cell, Button } from 'mint-ui'
-// import Pie from '../components/Pie'
+import randomItemCanvas from '@/components/random-item-canvas/index'
 
 export default {
-    // components: {Cell, Button, Pie},
+    components: {randomItemCanvas},
     data () {
         return {
             // focused: false
@@ -77,7 +61,16 @@ export default {
             download: false,
             pieData: [{name: '4305', value: 50}, {name: '3309', value: 200}, {name: '7890', value: 350}],
             diameter: 200,
-            strokeWidth: 16
+            strokeWidth: 16,
+            texts: [
+                {title: '下载', url: '/tips/download'}, 
+                {title: '预取', url: '/tips/prefetch'}, 
+                {title: 'Cookie', url: '/tips/cookie'}, 
+                {title: '移动端适配演示', url: '/tips/adaptive'},
+                {title: '上传', url: '/tips/upload'},
+                {title: 'css（居中、布局、小技巧等）', url: '/tips/center'},
+                {title: '瀑布流布局', url: '/tips/waterflow'}
+            ]
         }
     },
     methods: {
@@ -115,17 +108,11 @@ export default {
             this.download = false
             console.log('download complete')
         },
-        initCanvas () {
-            if (!this.$refs['topic'].getContext){
-                console.log('不支持canvas')
-                return
-            }
-            let ctx = this.$refs['topic'].getContext('2d')
-
+        routeTo(item){
+            this.$router.push(item.url)
         }
     },
     mounted () {
-        this.initCanvas()
     }
 }
 

@@ -1,10 +1,6 @@
 <template>
     <div class="page">
-        <header>
-            <p v-on:click="back" class="header-return"></p>
-            <p>Center</p>
-            <p></p>
-        </header>
+        <ss-header :title="'Center'"></ss-header>
         <section>
             <div class="vertical">Hi, I am vertical center.{height: 100px;line-height: 100px;}</div>
             <div class="horizontal">Hi, I am horizontally center.{text-align: center;}</div>

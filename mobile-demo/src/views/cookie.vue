@@ -1,10 +1,6 @@
 <template>
     <div class="page">
-        <header>
-            <p v-on:click="back" class="header-return"></p>
-            <p>Cookie Tips</p>
-            <p></p>
-        </header>
+        <ss-header :title="'Cookie Tips'"></ss-header>
         <section>
             <div>
                 cookie中的expires/max-age不设置（默认是1970年的时间）的时候就是一个session-cookie，

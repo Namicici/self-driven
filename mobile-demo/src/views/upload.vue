@@ -1,10 +1,6 @@
 <template>
     <div class="page">
-        <header>
-            <p v-on:click="back" class="header-return"></p>
-            <p>Upload</p>
-            <p></p>
-        </header>
+        <ss-header :title="'Upload'"></ss-header>
         <section>
             <div class="upload-container"> 
                 <label></label>

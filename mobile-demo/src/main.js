@@ -5,6 +5,9 @@ import { createStore } from './store'
 import { sync } from 'vuex-router-sync'
 import Axios from './utils/http'
 import * as filters from './utils/filters'
+import ssHeader from './components/header/index'
+
+Vue.component(ssHeader.name, ssHeader)
 
 Vue.config.productionTip = false
 
@@ -28,9 +31,9 @@ export function createApp () {
     }
     Vue.mixin({
         methods: {
-            back (step = 1) {
-                this.$router.back(-step)
-            }
+            // back (step = 1) {
+            //     this.$router.back(-step)
+            // }
         }
     })
 

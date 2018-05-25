@@ -57,6 +57,13 @@ export function createRouter () {
                 meta: {
                     title: 'Center'
                 }
+            }, {
+                path: '/tips/waterflow',
+                name: 'Water Flow',
+                component: resolve => require(['../views/waterflow.vue'], resolve),
+                meta: {
+                    title: 'Water Flow'
+                }
             }
         ]
     })

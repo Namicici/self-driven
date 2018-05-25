@@ -1,10 +1,6 @@
 <template>
     <div class="page">
-        <header>
-            <p v-on:click="back" class="header-return"></p>
-            <p>Adaptive Tips</p>
-            <p></p>
-        </header>
+        <ss-header :title="'Adaptive Tips'"></ss-header>
         <section>
             <div>
                 <a v-bind:href="pxHtml">没有适配</a>

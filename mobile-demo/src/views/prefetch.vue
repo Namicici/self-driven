@@ -1,10 +1,6 @@
 <template>
     <div class="page">
-        <header>
-            <p v-on:click="back" class="header-return"></p>
-            <p>Test Render</p>
-            <p></p>
-        </header>
+        <ss-header :title="'Test Render'"></ss-header>
         <section>
             <div>{{item}}</div>
         </section>
