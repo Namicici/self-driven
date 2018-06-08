@@ -38,7 +38,7 @@ export default {
         routeTo(e) {
             for (let i = 0; i < this.items.length; i++){
                 let temp = this.items[i]
-                let isInArea = (e.offsetX >= temp.x && e.offsetX <= (temp.x + temp.textWidth) && e.offsetY >= temp.y && e.offsetY <= (temp.y+20))
+                let isInArea = (e.offsetX >= temp.x && e.offsetX <= (temp.x + temp.textWidth) && e.offsetY >= temp.y && e.offsetY <= (temp.y+ITEM_HEIGHT))
                 if (isInArea){
                     // this.$router.push(temp.url)
                     this.$emit('click', temp)

@@ -69,7 +69,8 @@ export default {
                 {title: '移动端适配演示', url: '/tips/adaptive'},
                 {title: '上传', url: '/tips/upload'},
                 {title: 'css（居中、布局、小技巧等）', url: '/tips/center'},
-                {title: '瀑布流布局', url: '/tips/waterflow'}
+                {title: '瀑布流布局', url: '/tips/waterflow'},
+                {title: 'h5小游戏', url: '/tips/games'}
             ]
         }
     },

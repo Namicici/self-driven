@@ -64,7 +64,6 @@ export default {
                 } else {
                     let minHeight = Math.min.apply(this, this.heights)
                     let minBoxIndex = this.heights.indexOf(minHeight)
-                    // let elePre = document.getElementById('item' + minBoxIndex)
                     let ele = document.getElementById('item' + i)
                     ele.style = 'position: absolute; top:' + minHeight + 'px;left:' + boxWidth * minBoxIndex + 'px;'
                     this.heights[minBoxIndex] += boxHeight

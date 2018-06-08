@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>刮刮乐</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" />
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="format-detection" content="telephone=no">
+	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Expires" content="0" />
+	<meta name="full-screen" content="yes">
+	<meta name="x5-fullscreen" content="true">
+	
+	<link rel="stylesheet" type="text/css" href="./assets/css/main.css"/>
+</head>
+<body>
+	<div class="index">
+		<section class="indexTop">
+			<audio class="dh" id="musicBox" preload="metadata" controls autoplay="true"></audio>
+			<div class="music dh" id="musicPlay"></div>
+			<!-- <div class="music musicStop" id="musicStop"></div> -->
+			<!-- <div class="jinNang">
+				<a href="/views/activityBag/activity.html#!explain">活动锦囊</a>
+			</div> -->
+		</section>
+		<!-- 刮刮区域 -->
+		<div class="scratch">
+			<input type="hidden" id="activityRecordId"/>
+			<input type="hidden" id="winFlag"/>
+			<input type="hidden" id="prizeName"/>
+			<input type="hidden" id="prizeLevel"/>
+				<section class="middleScratch">
+					<div class="guayigua">
+						<h1></h1>
+						<div class="guaGray" id="guaGray"></div>
+					</div>	
+					<section class="luckyDraw" style="margin-top: 3%;">
+						<div>当日剩余抽奖次数：<label id="dayCount"></label>次</div>
+					</section>
+				</section>
+				
+			</section>
+			<section class="indexBottom">
+				<div class="iB_awards01">奖项设置</div>
+				<div class="iB_awards02">
+					<ul id="prizeLists">
+						<!--<li class="yellow">共有50000次抽奖机会，剩余9890次</li>-->
+					</ul>
+				</div>
+			</section>
+		</div>
+
+	</div>
+	
+	<!-- 新增领奖人信息 -->
+	<div class="addUser dh">
+		<div class="add">
+			<div class="close"></div>
+			<ul>
+				<li>姓名　<input id="userName" type="text" placeholder="请输入姓名" maxlength="20"/></li>
+				<li>手机号<input id="mobile" type="tel" placeholder="请输入手机号" maxlength="11"/></li>
+				<li class="center">
+					<div class="addSubmit"></div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	
+	
+	<!-- 未中奖 -->
+	<div class="NotWinning dh">
+		<div class="Nwing">
+			<div class="NwingMsg">
+				<div class="msg">居然没中奖，怎么可以这样...</div>
+				<div class="OnceMore"></div>
+			</div>			
+		</div>
+	</div>
+	
+	
+	<!-- 中奖 -->
+	<div class="Winning dh">
+		<div class="wing">
+			<ul>
+				<li><span></span></li>
+				<li>
+					<div class="wPrize">
+						<h3></h3>
+					</div>
+				</li>
+				<li>
+					<div class="goon"></div>
+					<div class="share"></div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="coverlayer dh">
+    </div>
+</body>
+<script type="text/javascript" src="../assets/js/jquery.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="./assets/js/q.layer.js" charset="utf-8"></script>
+<script type="text/javascript" src="./assets/js/wipe.js" charset="utf-8"></script>
+<script type="text/javascript" src="../assets/js/base.js" charset="utf-8"></script>
+<script type="text/javascript" src="./hang.js" ></script>
+</html>

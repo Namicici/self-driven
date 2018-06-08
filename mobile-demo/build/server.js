@@ -18,7 +18,7 @@ function createRenderer (bundle, options) {
             max: 1000,
             maxAge: 1000 * 60 * 15
         }),
-        basedir: resolve('./dist'),
+        basedir: resolve('./'),
         runInNewContext: false
     }))
 }
@@ -48,7 +48,8 @@ const serve = (path, cache) => express.static(resolve(path), {
     maxAge: cache && isProd ? 1000 * 60 * 60 * 24 * 30 : 0
 })
 
-app.use('/dist', serve('../dist', true))
+// app.use('/dist', serve('../dist', true))
+app.use('/', serve('../', true))
 // app.use('/service-worker.js', serve('./dist/service-worker.js'))
 
 function render (req, res) {

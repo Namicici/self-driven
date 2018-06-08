@@ -18,7 +18,7 @@ export function createRouter () {
             }, {
                 path: '/tips/download',
                 name: 'Download',
-                component: resolve => require(['../views/download.vue'], resolve),
+                component: resolve => require(['../views/download/download.vue'], resolve),
                 meta: {
                     title: 'download'
                 }
@@ -39,14 +39,14 @@ export function createRouter () {
             }, {
                 path: '/tips/adaptive',
                 name: 'Adaptive',
-                component: resolve => require(['../views/adaptive.vue'], resolve),
+                component: resolve => require(['../views/adaptive/adaptive.vue'], resolve),
                 meta: {
                     title: 'Adaptive'
                 }
             }, {
                 path: '/tips/upload',
                 name: 'Upload',
-                component: resolve => require(['../views/upload.vue'], resolve),
+                component: resolve => require(['../views/upload/upload.vue'], resolve),
                 meta: {
                     title: 'Upload'
                 }
@@ -63,6 +63,27 @@ export function createRouter () {
                 component: resolve => require(['../views/waterflow.vue'], resolve),
                 meta: {
                     title: 'Water Flow'
+                }
+            }, {
+                path: '/tips/games',
+                name: 'Games',
+                component: resolve => require(['../views/games/index.vue'], resolve),
+                meta: {
+                    title: 'Games'
+                }
+            }, {
+                path: '/tips/games/turntable',
+                name: 'Turntable Games',
+                component: resolve => require(['../views/games/turntable/index.vue'], resolve),
+                meta: {
+                    title: 'Turntable Games'
+                }
+            }, {
+                path: '/tips/games/scrape',
+                name: 'Scrape Games',
+                component: resolve => require(['../views/games/scrape/index.vue'], resolve),
+                meta: {
+                    title: 'Scrape Games'
                 }
             }
         ]
