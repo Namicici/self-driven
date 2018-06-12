@@ -14,6 +14,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 // const PORT = process.env.PORT && Number(process.env.PORT)
 
 const devWebpackConfig = merge(baseWebpackConfig, {
+    entry: {
+        app: ['webpack-hot-middleware/client'].concat(baseWebpackConfig.entry.app)
+    },
     module: {
         rules: utils.styleLoaders({ sourceMap: config[process.env.NODE_ENV].cssSourceMap, usePostCSS: true })
     },

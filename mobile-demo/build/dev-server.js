@@ -16,7 +16,8 @@ var compiler = webpack(webpackConfig)
 
 var devMiddleware = require('webpack-dev-middleware')(compiler, {
     publicPath: '/',
-    quiet: true
+    quiet: true,
+    hot: true
 })
 
 var hotMiddleware = require('webpack-hot-middleware')(compiler, {
@@ -24,7 +25,8 @@ var hotMiddleware = require('webpack-hot-middleware')(compiler, {
 })
 compiler.plugin('compilation', function (compilation) {
     compilation.plugin('html-webpack-plugin-after-emit', function (data, cb) {
-        hotMiddleware.publish({ action: 'reload' })
+        console.log('reload')
+        hotMiddleware.publish({ action: 'building' })
         cb()
     })
 })
