@@ -18,7 +18,7 @@ var upload = require('./handlers/upload.js').upload;
 
 var mapping = {
 	'GET /api/db/test': dbTest,
-	'GET /api/download/test': downloadTest,
+	'POST /api/download/test': downloadTest,
 	'GET /api/test/render': renderTest,
 	'POST /api/common/file/upload': upload
 }
@@ -43,11 +43,11 @@ function router(req, res){
 	log('method: ' + method + ' ' + pathname)
 
 	if (method === 'OPTIONS') {
-		res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000')
+		res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8219')
 		res.setHeader('Access-Control-Allow-Credentials', true) // allow cookie
 		res.setHeader('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
-		res.setHeader('Access-Control-Allow-Headers',
-			'Content-Type, Authorization, Content-Length, X-Requested-With, X-Custom-Header, token, Cookie')
+		res.setHeader('Access-Control-Allow-Headers', 
+			'Content-Type, Content-Disposition, Authorization, Content-Length, X-Requested-With, X-Custom-Header, token, Cookie')
 		res.end()
 		return
 	}

@@ -12,7 +12,7 @@ module.exports = {
         proxyTable: {},
         baseURL: 'http://localhost:8090/api',
         prefetchBaseURL: 'http://localhost:8090/api',
-        fileURL: 'http://localhost:8090/api',
+        fileURL: 'http://localhost:9001/api',
 
         productionSourceMap: false,
 

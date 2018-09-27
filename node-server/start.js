@@ -24,6 +24,6 @@ var server = http.createServer(function (req, res) {
 server.listen(port)
 log('server started at ' + port)
 
-process.on("uncaughtException", function(){
-    log('got error')
+process.on("uncaughtException", function(e){
+    log(e)
 })

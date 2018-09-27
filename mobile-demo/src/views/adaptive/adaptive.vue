@@ -12,7 +12,7 @@
 <style lang="less">
 </style>
 <script>
-import pxHtml from "file-loader!./px.html"
+import pxHtml from 'file-loader!./px.html'
 import flexibleHtml from 'file-loader!./flexible.html'
 
 export default {

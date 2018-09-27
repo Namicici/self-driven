@@ -9,6 +9,7 @@ html, body{
     background-color: @body-background;
     color: @text-color;
     font-size: 16px;
+    font-family: @font-family;
 }
 
 .page{
@@ -25,7 +26,10 @@ section{
     background: @section-color;
     overflow: auto;
     .section-name{
-        color: @title-color;
+        color: @section-title-color;
         padding: 12px;
+    }
+    .topic{
+        background: @section-content-color;
     }
 }

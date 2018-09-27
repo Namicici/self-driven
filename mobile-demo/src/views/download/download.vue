@@ -10,6 +10,12 @@
                 </li>
                 <li>
                     <span>a标签中使用download</span>
+                    <a href="http://localhost:9001/api/download/test" download>下载</a>
+                </li>
+                <li>
+                    <span>blob接手文件流的方式</span>
+                    <button @click="download">下载</button>
+                    <a :href="url" ref="download" download>do</a>
                 </li>
             </ul>
         </section>
@@ -30,7 +36,7 @@ export default {
     // components: {Code},
     data () {
         return {
-
+            url: ''
         }
     },
     // asyncData ({ store, route }) {
@@ -42,6 +48,33 @@ export default {
         // item () {
         //     return this.$store.state.items[this.$route.params.id]
         // }
+    },
+    methods: {
+        download () {
+            this.$http({
+                method: 'post',
+                url: '/download/test',
+                baseURL: process.env.FILE_URL,
+                responseType: 'blob',
+                data: {
+                    fileId: '001'
+                }
+            }).then((res) => {
+                // application/vnd.ms-excel
+                let blob = new Blob([res.data])
+                let filename = res.headers["content-disposition"].split(';')[1].split('=')[1]
+
+                if (window.navigator.msSaveOrOpenBlob) {
+                    navigator.msSaveBlob(blob, filename);
+                } else {
+                    var link = document.createElement('a');
+                    link.href = window.URL.createObjectURL(blob);
+                    link.download = filename;
+                    link.click();
+                    window.URL.revokeObjectURL(link.href);
+                }
+            })
+        }
     }
 }
 </script>

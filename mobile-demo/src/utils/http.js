@@ -5,7 +5,7 @@ Axios.defaults.baseURL = process.env.BASE_URL
 // Add a request interceptor
 Axios.interceptors.request.use(function (config) {
     // Do something before request is sent
-    config.headers = {token: '1234567890'}
+    config.headers['token'] = '1234567890'
     return config
 }, function (error) {
     // Do something with request error
@@ -15,7 +15,7 @@ Axios.interceptors.request.use(function (config) {
 // Add a response interceptor
 Axios.interceptors.response.use(function (response) {
     // Do something with response data
-    return response.data
+    return response
 }, function (error) {
     // Do something with response error
     // MessageBox({title: '错误提示', message: error.response.data.message})

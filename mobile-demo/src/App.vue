@@ -3,7 +3,7 @@
     <transition :name="transformName">
         <keep-alive>
             <router-view></router-view>
-      	</keep-alive>
+        </keep-alive>
     </transition>
     <!-- <div>
         <ss-progressbar ref="ProgressBar" class="page-loading-progress"></ss-progressbar>

@@ -38,7 +38,7 @@
 
 </style>
 <script>
-import ssInfiniteScroll from "@/components/infinite-scroll/index"
+import ssInfiniteScroll from '@/components/infinite-scroll/index'
 export default {
     components: {ssInfiniteScroll},
     data () {
@@ -53,13 +53,13 @@ export default {
         rearrange (sources) {
             this.arrange(sources, 0)
         },
-        arrange (sources, lastIndex){
+        arrange (sources, lastIndex) {
             let width = document.getElementById('item0').parentNode.clientWidth
             let boxWidth = document.getElementById('item0').clientWidth
-            let cols = Math.floor(width/boxWidth)
-            for (let i=lastIndex; i<sources.length; i++){
+            let cols = Math.floor(width / boxWidth)
+            for (let i = lastIndex; i < sources.length; i++) {
                 let boxHeight = document.getElementById('item' + i).offsetHeight
-                if (i<cols){
+                if (i < cols) {
                     this.heights.push(boxHeight)
                 } else {
                     let minHeight = Math.min.apply(this, this.heights)
@@ -80,14 +80,14 @@ export default {
                 params: {
                     lastId: this.lastId
                 }
-            }).then((data)=>{
+            }).then((data) => {
                 this.lastId = data.data[data.data.length - 1]
                 let lastIndex = this.datas.length
                 this.datas = this.datas.concat(data.data)
-                this.$nextTick(()=>{
+                this.$nextTick(() => {
                     this.arrange(this.datas, lastIndex)
                 })
-            }, ()=>{
+            }, () => {
                 this.loading = false
             })
         },
@@ -98,7 +98,7 @@ export default {
             this.heights = []
             this.getData()
         },
-        loadMore (){
+        loadMore () {
             console.log('more')
             this.getData()
         }
@@ -107,5 +107,4 @@ export default {
         this.load()
     }
 }
-    
 </script>

@@ -16,6 +16,7 @@ header{
     justify-content: space-between;
     position: fixed;
     width: 100%;
+    z-index: 999;
     p{
         padding: 0 12px;
     }

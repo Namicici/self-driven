@@ -15,21 +15,25 @@ function download (file, type, res) {
 }
 
 function downloadTest (req, res) {
-    setTimeout(function () {
+    // setTimeout(function () {
         log('begin to create file!')
-        file.copySync('./server/files/test.xlsx', './dist/files/test.xlsx')
-        var content = fs.readFileSync('./dist/files/test.xlsx')
+        // file.copySync('./server/files/test.xlsx', './dist/files/test.xlsx')
+        var content = fs.readFileSync('./files/test.xlsx')
 
         res.writeHead(200, {
             'Content-Type': 'application/octet-stream', // 二进制流，不知道下载文件类型
-            'Content-Disposition': 'attachment; filename=test.xlsx'})
+            'Content-Disposition': 'attachment; filename=test.xlsx',
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Expose-Headers': 'Content-Disposition'  // 暴露这个header字段后可以在程序中取到这个值，否者可能获取不到response中的header中的值
+        })
         res.write(content)
         // res.end();
         // var buffer = new Buffer(content);
         // log('buffer data: ' + buffer);
         // res.write(buffer);
+        console.log(content)
         res.end()
-    }, 10000)
+    // }, 10000)
 }
 
 module.exports = {

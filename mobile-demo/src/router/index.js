@@ -53,9 +53,23 @@ export function createRouter () {
             }, {
                 path: '/tips/center',
                 name: 'Center',
-                component: resolve => require(['../views/center.vue'], resolve),
+                component: resolve => require(['../views/css/center.vue'], resolve),
                 meta: {
                     title: 'Center'
+                }
+            }, {
+                path: '/tips/float',
+                name: 'Float',
+                component: resolve => require(['../views/css/float.vue'], resolve),
+                meta: {
+                    title: 'Float'
+                }
+            }, {
+                path: '/tips/icons',
+                name: 'Icons',
+                component: resolve => require(['../views/css/icons.vue'], resolve),
+                meta: {
+                    title: 'Icons'
                 }
             }, {
                 path: '/tips/waterflow',
@@ -84,6 +98,13 @@ export function createRouter () {
                 component: resolve => require(['../views/games/scrape/index.vue'], resolve),
                 meta: {
                     title: 'Scrape Games'
+                }
+            }, {
+                path: '/tips/chat',
+                name: 'Chat',
+                component: resolve => require(['../views/chat/index.vue'], resolve),
+                meta: {
+                    title: 'Chat'
                 }
             }
         ]
