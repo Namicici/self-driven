@@ -10,7 +10,8 @@ module.exports = {
         assetsSubDirectory: 'static',
         assetsPublicPath: '/',
         proxyTable: {},
-        baseURL: 'http://localhost:8090/api',
+        // baseURL: 'http://localhost:8090/api',
+        baseURL: '/api',
         prefetchBaseURL: 'http://localhost:8090/api',
         fileURL: 'http://localhost:9001/api',
 

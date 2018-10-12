@@ -31,13 +31,15 @@ export default {
     watch: {
         $route (to, from) {
             // 目标state为空为0时，为前进动作
-            if (!to.meta.state) {
-                to.meta.state = (from.meta.state ? from.meta.state : 0) + 1
-            }
+            // if (!to.meta.state) {
+            //     to.meta.state = (from.meta.state ? from.meta.state : 0) + 1
+            // }
             if (to.path === '/' && from.path !== '/') {
                 this.transformName = 'vux-pop-out'
             } else {
-                this.transformName = to.meta.state < from.meta.state ? 'vux-pop-out' : 'vux-pop-in'
+                this.transformName = 'vux-pop-in'
+                // this.transformName = to.meta.state < from.meta.state ? 'vux-pop-out' : 'vux-pop-in'
+                this.transformName = to.path.split('/').length < from.path.split('/').length ? 'vux-pop-out' : 'vux-pop-in'
             }
             // 目标state和来源state不为空，且目标state小于来源state时，为后退动作
             if (to.meta.state && from.meta.state && to.meta.state < from.meta.state) {

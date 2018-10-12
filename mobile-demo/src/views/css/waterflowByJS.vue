@@ -1,22 +1,26 @@
 <template>
-    <ss-infinite-scroll @pullDown="load" @pullUp="loadMore">
-        <div class="water-flow" ref="water-flow">
-            <div class="item" :id="'item' + index" v-for="(item, index) in datas" :key="item">
-                <div class="content">{{item}}</div>
-            </div>
-        </div>
-    </ss-infinite-scroll>
+    <div class="page">
+        <ss-header title="Water Flow"></ss-header>
+        <section class="fill">
+            <ss-infinite-scroll @pullDown="load" @pullUp="loadMore">
+                <div class="water-flow" ref="water-flow">
+                    <div class="item" :id="'item' + index" v-for="(item, index) in datas" :key="item">
+                        <div class="content">{{item}}</div>
+                    </div>
+                </div>
+            </ss-infinite-scroll>
+        </section>
+    </div>
 </template>
 <style lang="less" scoped>
-.water-flow{
-    // column-width: 112px;
-    position: relative;
+.fill{
     height: 100%;
+}
+.water-flow{
+    position: relative;
     .item{
         width: 100px;
         float: left;
-        // position: absolute;
-        column-width: 112px;
         padding: 10px;
         text-align: center;
         .content{
@@ -80,10 +84,10 @@ export default {
                 params: {
                     lastId: this.lastId
                 }
-            }).then((data) => {
-                this.lastId = data.data[data.data.length - 1]
+            }).then((res) => {
+                this.lastId = res.data.data[res.data.data.length - 1]
                 let lastIndex = this.datas.length
-                this.datas = this.datas.concat(data.data)
+                this.datas = this.datas.concat(res.data.data)
                 this.$nextTick(() => {
                     this.arrange(this.datas, lastIndex)
                 })

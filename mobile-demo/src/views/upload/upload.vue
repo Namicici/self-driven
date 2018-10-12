@@ -78,7 +78,7 @@ export default {
 
         },
         loadProgress (e) {
-            this.percent = e.loaded/e.total * 100
+            this.percent = e.loaded / e.total * 100
             console.log(e)
         },
         displayProgress () {
