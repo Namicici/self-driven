@@ -7,23 +7,18 @@
   "scripts": {
     "dev2": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "dev_": "cross-env NODE_ENV=dev node build/dev-server.js",
-    
     "dev": "cross-env NODE_ENV=dev node build/server",
     "start": "npm run dev",
-    
     "unit": "jest --config test/unit/jest.conf.js --coverage",
     "e2e": "node test/e2e/runner.js",
     "test": "npm run unit && npm run e2e",
     "lint": "eslint --ext .js,.vue src test/unit test/e2e/specs",
-    
     "build:client": "cross-env NODE_ENV=production webpack --config build/webpack.client.conf.js --progress --hide-modules",
     "build:server": "cross-env NODE_ENV=production webpack --config build/webpack.server.conf.js --progress --hide-modules",
     "build": "npm run build:client && npm run build:server",
-
     "buildTest:client": "cross-env NODE_ENV=testing webpack --config build/webpack.client.conf.js --progress --hide-modules",
     "buildTest:server": "cross-env NODE_ENV=testing webpack --config build/webpack.server.conf.js --progress --hide-modules",
     "buildTest": "npm run buildTest:client && npm run buildTest:server",
-    
     "server": "cross-env NODE_ENV=dev node --debug ./server/start.js && supervisor -w server",
     "debug": "node-inspector --web-port=8080"
   },
@@ -40,6 +35,7 @@
     "vuex-router-sync": "4.2.0"
   },
   "devDependencies": {
+    "autoprefixer": "^7.1.2",
     "babel-core": "^6.22.1",
     "babel-eslint": "^8.2.1",
     "babel-helper-vue-jsx-merge-props": "^2.0.3",
@@ -84,16 +80,14 @@
     "optimize-css-assets-webpack-plugin": "^3.2.0",
     "ora": "^1.2.0",
     "portfinder": "^1.0.13",
-    "autoprefixer": "^7.1.2",
+    "postcss-aspect-ratio-mini": "0.0.2",
+    "postcss-cssnext": "^3.1.0",
     "postcss-import": "^11.0.0",
     "postcss-loader": "^2.0.8",
+    "postcss-px-to-viewport": "0.0.3",
     "postcss-url": "^7.2.1",
     "postcss-viewport-units": "^0.1.4",
     "postcss-write-svg": "^3.0.1",
-    "postcss-aspect-ratio-mini": "0.0.2",
-    "postcss-cssnext": "^3.1.0",
-    "postcss-px-to-viewport": "0.0.3",
-    "viewport-units-buggyfill": "^0.6.2",
     "rimraf": "^2.6.0",
     "scp2": "^0.5.0",
     "selenium-server": "^3.0.1",
@@ -101,6 +95,7 @@
     "shelljs": "^0.7.6",
     "uglifyjs-webpack-plugin": "^1.1.1",
     "url-loader": "^0.5.8",
+    "viewport-units-buggyfill": "^0.6.2",
     "vue-jest": "^1.0.2",
     "vue-loader": "^13.3.0",
     "vue-style-loader": "^3.0.1",
