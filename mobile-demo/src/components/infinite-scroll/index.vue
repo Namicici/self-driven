@@ -18,7 +18,7 @@
     overflow-x: hidden;
 }
 .overflow-hidden-y{
-    overflow-:y hidden;
+    overflow-y: hidden;
 }
 </style>
 <script>

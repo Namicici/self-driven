@@ -63,7 +63,7 @@ export default {
 </script>
 
 <style lang="less">
-@import "./styles/index.less";
+@import "~@/assets/less/index.less";
 #app {
     font-family: @font-family;
     -webkit-font-smoothing: antialiased;

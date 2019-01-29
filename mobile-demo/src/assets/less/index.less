@@ -1,0 +1,26 @@
+// @import "./common";
+@import "./reset";
+@import "./custom";
+
+html, body{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-color: @body-background;
+    color: @text-color;
+    font-size: 16px;
+    font-family: @font-family;
+}
+
+.page{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+	overflow: auto;
+	.page-content {
+		padding-top: 52px;
+	}
+}
+

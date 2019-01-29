@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import Base from '../../libs/base'
+import Base from '@/mixins/base'
 
 export default {
     name: 'ss-progress',
@@ -42,5 +42,5 @@ export default {
 </script>
 
 <style lang="less">
-@import '../../styles/weui/widget/weui_progress/weui_progress';
+@import '~@/assets/less/weui/widget/weui_progress/weui_progress';
 </style>

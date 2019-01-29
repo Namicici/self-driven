@@ -6,7 +6,7 @@
     </header>
 </template>
 <style lang="less" scoped>
-@import "../../styles/custom";
+@import "~@/assets/less/custom.less";
 header{
     color: #fff;
     padding: 12px 0;
