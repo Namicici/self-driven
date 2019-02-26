@@ -36,6 +36,9 @@
                     这是如何实现的呢？外层是一个div块，text-align：center，里面包裹一个inline-block，text-align：left</div>
             </div>
         </section>
+		<section>
+			关于line-height和vertical-aligin
+		</section>
     </div>
 </template>
 <style lang="less">
