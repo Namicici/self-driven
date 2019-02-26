@@ -1,6 +1,9 @@
-## [0.1.1](https://github.com//Namicici/Namicici/self-driven/compare/v0.1.0...v0.1.1) (2019-02-26)
+# [0.2.0](https://github.com//Namicici/Namicici/self-driven/compare/v0.1.1...v0.2.0) (2019-02-26)
 
 
+### Features
+
+* **【测试】:** 测试tag ([0de6ab0](https://github.com//Namicici/Namicici/self-driven/commit/0de6ab0))
 
 # 0.1.0 (2019-02-26)
 
