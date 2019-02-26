@@ -37,7 +37,7 @@
             </div>
         </section>
 		<section>
-			关于line-height和vertical-aligin
+			<div>关于line-height和vertical-aligin</div>
 		</section>
     </div>
 </template>
